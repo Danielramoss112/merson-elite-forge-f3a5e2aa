@@ -1,20 +1,40 @@
 import { useEffect, useState } from "react";
 import { BarChart3, Scale } from "lucide-react";
+import { useCountUp } from "@/hooks/use-count-up";
 
-const news = [
-  { tag: "TST", title: "Tribunal reconhece vínculo empregatício em plataformas digitais" },
-  { tag: "STF", title: "Plenário decide sobre marco temporal e impacta milhares de processos" },
-  { tag: "STJ", title: "Súmula amplia direito de revisão de contratos bancários" },
-  { tag: "TJMA", title: "Decisão fortalece proteção de consumidores em planos de saúde" },
+type NewsItem = { tag: string; title: string; date: string; link?: string };
+
+const FALLBACK: NewsItem[] = [
+  { tag: "TST", title: "Tribunal reconhece vínculo empregatício em plataformas digitais", date: "Atualizado hoje" },
+  { tag: "STF", title: "Plenário decide sobre marco temporal e impacta milhares de processos", date: "Atualizado hoje" },
+  { tag: "STJ", title: "Súmula amplia direito de revisão de contratos bancários", date: "Atualizado hoje" },
+  { tag: "TJMA", title: "Decisão fortalece proteção de consumidores em planos de saúde", date: "Atualizado hoje" },
 ];
 
 export function Intelligence() {
+  const [news, setNews] = useState<NewsItem[]>(FALLBACK);
   const [i, setI] = useState(0);
+  const [pct, pctRef] = useCountUp(98, 2000);
+
   useEffect(() => {
-    const t = setInterval(() => setI((p) => (p + 1) % news.length), 4500);
-    return () => clearInterval(t);
+    let cancelled = false;
+    fetch("/api/news")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (!cancelled && d?.items?.length) setNews(d.items.slice(0, 4));
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
   }, []);
-  const current = news[i];
+
+  useEffect(() => {
+    const t = setInterval(() => setI((p) => (p + 1) % news.length), 4000);
+    return () => clearInterval(t);
+  }, [news.length]);
+
+  const current = news[i] ?? FALLBACK[0];
 
   return (
     <section className="relative py-28 overflow-hidden">
@@ -37,14 +57,25 @@ export function Intelligence() {
                 <span className="h-2 w-2 rounded-full bg-destructive live-dot" />
                 Live Feed
               </span>
-              <span className="text-xs text-foreground/50">Atualizado agora</span>
+              <span className="text-xs text-foreground/50">{current.date}</span>
             </div>
-            <div className="mt-6 min-h-[140px]">
+            <div className="mt-6 min-h-[160px]">
               <span className="inline-block rounded-md bg-gold/15 px-2.5 py-1 text-xs text-gold font-medium">
                 {current.tag}
               </span>
               <h3 className="mt-4 font-serif text-2xl md:text-3xl leading-snug">
-                {current.title}
+                {current.link ? (
+                  <a
+                    href={current.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-gold transition-colors"
+                  >
+                    {current.title}
+                  </a>
+                ) : (
+                  current.title
+                )}
               </h3>
             </div>
             <div className="mt-6 flex gap-2">
@@ -62,9 +93,12 @@ export function Intelligence() {
           </div>
 
           <div className="lg:col-span-2 grid gap-6">
-            <div className="reveal rounded-3xl border border-border bg-card p-8 shadow-elegant">
+            <div
+              ref={pctRef as React.RefObject<HTMLDivElement>}
+              className="reveal rounded-3xl border border-border bg-card p-8 shadow-elegant"
+            >
               <BarChart3 className="text-gold" size={28} />
-              <div className="mt-3 font-serif text-6xl gold-text">98%</div>
+              <div className="mt-3 font-serif text-6xl gold-text">{Math.round(pct)}%</div>
               <div className="mt-1 text-xs uppercase tracking-[0.2em] text-foreground/65">
                 Taxa de Resolução
               </div>

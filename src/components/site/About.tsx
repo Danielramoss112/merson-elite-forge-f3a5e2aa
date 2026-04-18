@@ -1,8 +1,17 @@
-import merson from "@/assets/merson-main.jpeg";
+import merson from "@/assets/merson-hero.jpeg";
+import conquistas from "@/assets/merson-conquistas.jpeg";
 import { ArrowRight } from "lucide-react";
 import { SITE } from "@/lib/site";
+import { useState } from "react";
+
+const slides = [
+  { id: "foto", img: merson, label: "Dr. Merson" },
+  { id: "conquistas", img: conquistas, label: "Principais Conquistas" },
+];
 
 export function About() {
+  const [slide, setSlide] = useState(0);
+
   return (
     <section id="sobre" className="relative py-28 overflow-hidden">
       <div className="deco-circle" style={{ width: 500, height: 500, top: -120, left: -200 }} />
@@ -18,25 +27,60 @@ export function About() {
         </div>
 
         <div className="mt-16 grid lg:grid-cols-2 gap-14 items-start">
+          {/* Desktop: single photo. Mobile: swipe carousel */}
           <div className="relative reveal flex justify-center lg:justify-start">
-            <div className="relative">
+            {/* Desktop photo */}
+            <div className="relative hidden md:block">
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-gold/40 via-transparent to-gold/20 blur-xl" />
               <div className="relative rounded-[2rem] border-2 border-gold/60 p-2 bg-ink">
                 <img
                   src={merson}
                   alt="Dr. Merson Macedo"
-                  className="rounded-[1.6rem] w-[340px] md:w-[420px] h-[480px] md:h-[560px] object-cover object-top"
+                  className="rounded-[1.6rem] w-[420px] h-[560px] object-cover object-top"
                 />
               </div>
               <div className="absolute -top-4 -left-4 h-16 w-16 rounded-full gradient-gold flex items-center justify-center font-serif text-2xl text-primary-foreground shadow-gold">
                 Dr.
               </div>
-
               <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-2 whitespace-nowrap">
                 {["+500 casos", "TJMA & STJ", "OAB Ativo"].map((b) => (
                   <span
                     key={b}
                     className="rounded-full border border-gold/40 glass px-3 py-1.5 text-[11px] text-foreground/85"
+                  >
+                    {b}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile carousel */}
+            <div className="md:hidden w-full">
+              <div className="relative -mx-6 px-6 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-3 scrollbar-hide">
+                {slides.map((s, idx) => (
+                  <div
+                    key={s.id}
+                    className="snap-center shrink-0 w-[85%] relative"
+                    onScroll={() => setSlide(idx)}
+                  >
+                    <div className="relative rounded-[2rem] border-2 border-gold/60 p-2 bg-ink shadow-elegant">
+                      <img
+                        src={s.img}
+                        alt={s.label}
+                        className="rounded-[1.6rem] w-full h-[440px] object-cover object-top"
+                      />
+                    </div>
+                    <span className="absolute top-6 left-6 rounded-full border border-gold/40 glass px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-gold">
+                      {s.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2 justify-center">
+                {["+500 casos", "TJMA & STJ", "OAB Ativo"].map((b) => (
+                  <span
+                    key={b}
+                    className="rounded-full border border-gold/40 bg-gold/5 px-3 py-1.5 text-[11px] text-foreground/85"
                   >
                     {b}
                   </span>
