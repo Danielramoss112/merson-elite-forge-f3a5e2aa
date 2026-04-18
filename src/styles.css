@@ -144,3 +144,8 @@
   50% { opacity: 0.4; }
 }
 .live-dot { animation: pulse-dot 1.5s ease-in-out infinite; }
+
+html { scroll-padding-top: 80px; }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }

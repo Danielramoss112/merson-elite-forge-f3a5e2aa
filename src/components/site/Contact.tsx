@@ -33,10 +33,26 @@ ${form.message}`;
   ];
 
   return (
-    <section id="contato" className="relative py-28 overflow-hidden bg-ink-soft/30">
+    <section
+      id="contato"
+      className="relative py-28 overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(135deg, #0f0f0f 0%, #14110a 60%, #1a1500 100%)",
+      }}
+    >
+      {/* subtle noise */}
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+        }}
+      />
       <div className="deco-circle" style={{ width: 460, height: 460, bottom: -180, right: -180 }} />
 
-      <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-16">
+      <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-16">
         <div className="reveal">
           <span className="inline-block rounded-full border border-gold/40 bg-gold/5 px-4 py-1.5 text-[10px] tracking-[0.22em] uppercase text-gold">
             Contato
@@ -68,11 +84,13 @@ ${form.message}`;
 
         <form
           onSubmit={onSubmit}
-          className="reveal rounded-3xl border border-border bg-card p-8 md:p-10 shadow-elegant space-y-5"
+          className="reveal rounded-3xl p-8 md:p-10 shadow-elegant space-y-5"
+          style={{ background: "#1a1a1a", border: "1px solid #c4953a" }}
         >
           <Field label="Nome">
             <input
               required
+              maxLength={100}
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               className="input-field"
@@ -82,6 +100,7 @@ ${form.message}`;
             <Field label="Telefone">
               <input
                 required
+                maxLength={20}
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 className="input-field"
@@ -91,6 +110,7 @@ ${form.message}`;
               <input
                 type="email"
                 required
+                maxLength={120}
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 className="input-field"
@@ -115,6 +135,7 @@ ${form.message}`;
           <Field label="Mensagem">
             <textarea
               required
+              maxLength={1000}
               rows={4}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -124,7 +145,11 @@ ${form.message}`;
 
           <button
             type="submit"
-            className="w-full inline-flex items-center justify-center gap-2 rounded-full gradient-gold px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-gold hover:opacity-90 transition-all"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
+            style={{
+              background: "linear-gradient(135deg, #c4953a, #dbb568)",
+              boxShadow: "0 10px 30px -10px rgba(196,149,58,0.55)",
+            }}
           >
             Enviar Mensagem <ArrowRight size={16} />
           </button>
@@ -145,19 +170,20 @@ ${form.message}`;
       <style>{`
         .input-field {
           width: 100%;
-          background: oklch(0.10 0.012 260);
-          border: 1px solid var(--border);
+          background: #111;
+          border: 1px solid rgba(255,255,255,0.08);
           border-radius: 0.75rem;
           padding: 0.75rem 1rem;
           color: var(--foreground);
           font-size: 0.95rem;
-          transition: border-color 0.2s;
+          transition: border-color 0.2s, box-shadow 0.2s;
         }
         .input-field:focus {
           outline: none;
-          border-color: var(--gold);
+          border-color: #c4953a;
+          box-shadow: 0 0 0 3px rgba(196,149,58,0.15);
         }
-        .input-field option { background: oklch(0.14 0.012 260); }
+        .input-field option { background: #111; }
       `}</style>
     </section>
   );

@@ -1,32 +1,22 @@
-import { useEffect, useRef, useState } from "react";
+import { useCountUp } from "@/hooks/use-count-up";
 
-const stats = [
-  { value: "+10", label: "Anos de Experiência" },
-  { value: "4 anos", label: "Assessor no TJMA" },
-  { value: "7", label: "Áreas de Atuação" },
-  { value: "2", label: "Estados OAB (MA & GO)" },
+type Stat = { end: number; prefix?: string; suffix?: string; label: string };
+
+const stats: Stat[] = [
+  { end: 10, prefix: "+", label: "Anos de Experiência" },
+  { end: 4, suffix: " anos", label: "Assessor no TJMA" },
+  { end: 7, label: "Áreas de Atuação" },
+  { end: 2, label: "Estados OAB (MA & GO)" },
 ];
 
-function StatItem({ value, label }: { value: string; label: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    if (!ref.current) return;
-    const io = new IntersectionObserver(
-      ([e]) => e.isIntersecting && setShow(true),
-      { threshold: 0.4 }
-    );
-    io.observe(ref.current);
-    return () => io.disconnect();
-  }, []);
+function StatItem({ end, prefix = "", suffix = "", label }: Stat) {
+  const [value, ref] = useCountUp(end, 2000);
   return (
-    <div ref={ref} className="text-center">
-      <div
-        className={`font-serif text-4xl md:text-5xl gold-text transition-all duration-700 ${
-          show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-        }`}
-      >
-        {value}
+    <div ref={ref as React.RefObject<HTMLDivElement>} className="text-center">
+      <div className="font-serif text-4xl md:text-5xl gold-text">
+        {prefix}
+        {Math.round(value)}
+        {suffix}
       </div>
       <div className="mt-2 text-xs md:text-sm tracking-[0.18em] uppercase text-foreground/65">
         {label}

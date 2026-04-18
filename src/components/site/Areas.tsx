@@ -24,29 +24,17 @@ export function Areas() {
           </p>
         </div>
 
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Mobile: horizontal swipe carousel */}
+        <div className="mt-12 sm:hidden -mx-6 px-6 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
           {AREAS.map((a) => (
-            <button
-              key={a.id}
-              onClick={() => setActive(a)}
-              className="group reveal text-left rounded-2xl overflow-hidden border border-border bg-card hover:border-gold/60 transition-all shadow-elegant hover:-translate-y-1"
-            >
-              <div className="relative h-44 overflow-hidden">
-                <img
-                  src={a.image}
-                  alt={a.title}
-                  className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
-              </div>
-              <div className="p-6">
-                <h3 className="font-serif text-2xl">{a.title}</h3>
-                <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{a.short}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm text-gold group-hover:gap-3 transition-all">
-                  Saiba Mais <ArrowRight size={16} />
-                </span>
-              </div>
-            </button>
+            <AreaCard key={a.id} area={a} onOpen={setActive} className="snap-center shrink-0 w-[78%]" />
+          ))}
+        </div>
+
+        {/* Desktop / tablet grid */}
+        <div className="mt-16 hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {AREAS.map((a) => (
+            <AreaCard key={a.id} area={a} onOpen={setActive} />
           ))}
         </div>
       </div>
@@ -79,6 +67,25 @@ export function Areas() {
                 </span>
               </h3>
               <p className="mt-4 text-foreground/75 leading-relaxed">{active.full}</p>
+
+              {/* Success rate bar */}
+              <div className="mt-6">
+                <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-foreground/60">
+                  <span>Taxa de Êxito</span>
+                  <span className="text-gold">96%</span>
+                </div>
+                <div className="mt-2 h-1.5 rounded-full bg-foreground/10 overflow-hidden">
+                  <div
+                    className="h-full rounded-full"
+                    style={{
+                      width: "96%",
+                      background: "linear-gradient(90deg, #c4953a, #dbb568)",
+                      animation: "growBar 1.2s ease-out",
+                    }}
+                  />
+                </div>
+              </div>
+
               <a
                 href={SITE.whatsappUrl}
                 target="_blank"
@@ -91,6 +98,49 @@ export function Areas() {
           </div>
         </div>
       )}
+
+      <style>{`
+        @keyframes growBar {
+          from { width: 0%; }
+          to { width: 96%; }
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { scrollbar-width: none; }
+      `}</style>
     </section>
+  );
+}
+
+function AreaCard({
+  area,
+  onOpen,
+  className = "",
+}: {
+  area: (typeof AREAS)[number];
+  onOpen: (a: (typeof AREAS)[number]) => void;
+  className?: string;
+}) {
+  return (
+    <button
+      onClick={() => onOpen(area)}
+      className={`group reveal text-left rounded-2xl overflow-hidden border border-border bg-card hover:border-gold/60 transition-all shadow-elegant hover:-translate-y-1 ${className}`}
+    >
+      <div className="relative h-44 overflow-hidden">
+        <img
+          src={area.image}
+          alt={area.title}
+          loading="lazy"
+          className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
+      </div>
+      <div className="p-6">
+        <h3 className="font-serif text-2xl">{area.title}</h3>
+        <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{area.short}</p>
+        <span className="mt-5 inline-flex items-center gap-2 text-sm text-gold group-hover:gap-3 transition-all">
+          Saiba Mais <ArrowRight size={16} />
+        </span>
+      </div>
+    </button>
   );
 }

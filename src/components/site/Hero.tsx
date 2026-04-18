@@ -1,4 +1,4 @@
-import merson from "@/assets/merson-main.jpeg";
+import merson from "@/assets/merson-hero.jpeg";
 import { SITE } from "@/lib/site";
 
 export function Hero() {
@@ -54,15 +54,28 @@ export function Hero() {
         </div>
 
         <div className="relative reveal flex justify-center lg:justify-end">
-          <div className="relative">
+          <div className="relative group">
             <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-gold/40 via-transparent to-gold/20 blur-xl" />
-            <div className="relative rounded-[2rem] border-2 border-gold/60 p-2 bg-ink shadow-elegant">
+            <div className="relative rounded-[2rem] border-2 border-gold/60 p-2 bg-ink shadow-elegant overflow-hidden">
               <img
                 src={merson}
                 alt="Dr. Merson Macedo"
-                className="rounded-[1.6rem] w-[340px] md:w-[420px] h-[460px] md:h-[540px] object-cover object-top"
+                className="hero-photo rounded-[1.6rem] w-[340px] md:w-[420px] h-[460px] md:h-[540px] object-cover object-top"
               />
             </div>
+
+            {/* Floating side badges */}
+            <div className="hidden md:flex absolute top-10 -left-6 lg:-left-12 flex-col gap-3">
+              <span className="rounded-full border border-gold/40 glass px-4 py-2 text-[11px] tracking-[0.18em] uppercase text-gold shadow-elegant">
+                Principais Conquistas
+              </span>
+            </div>
+            <div className="hidden md:flex absolute top-10 -right-6 lg:-right-12 flex-col gap-3">
+              <span className="rounded-full border border-gold/40 glass px-4 py-2 text-[11px] tracking-[0.18em] uppercase text-gold shadow-elegant">
+                História
+              </span>
+            </div>
+
             <div className="absolute -bottom-6 -left-6 md:-left-10 rounded-2xl border border-gold/40 glass px-5 py-3 max-w-[260px] shadow-elegant">
               <div className="text-[10px] uppercase tracking-widest text-gold">
                 Expertise Comprovada
@@ -74,6 +87,27 @@ export function Hero() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .hero-photo {
+          filter: grayscale(100%) brightness(0.85);
+          transition: filter 0.4s ease, transform 0.4s ease;
+          animation: heroZoom 6s ease-in-out infinite;
+        }
+        .group:hover .hero-photo,
+        .hero-photo:active {
+          filter: grayscale(0%) brightness(1);
+        }
+        @keyframes heroZoom {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.04); }
+        }
+        @media (hover: none) {
+          .hero-photo:focus, .hero-photo:active {
+            filter: grayscale(0%) brightness(1);
+          }
+        }
+      `}</style>
     </section>
   );
 }
