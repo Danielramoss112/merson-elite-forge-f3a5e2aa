@@ -11,6 +11,7 @@ import { Contact } from "@/components/site/Contact";
 import { Location } from "@/components/site/Location";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
+import { LexChat } from "@/components/site/LexChat";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
@@ -59,6 +60,7 @@ function Index() {
       <Location />
       <Footer />
       <WhatsAppFloat />
+      <LexChat />
     </main>
   );
 }

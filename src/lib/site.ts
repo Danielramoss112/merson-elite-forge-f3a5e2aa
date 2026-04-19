@@ -9,20 +9,27 @@ export const SITE = {
   address: "SQ 12 Quadra 12 Proj 03 - Loja 28 Sala C, Cidade Ocidental/GO",
 };
 
+import bancarioImg from "@/assets/areas/direito-bancario.png";
+import consumidorImg from "@/assets/areas/direito-consumidor.jpg";
+import previdenciarioImg from "@/assets/areas/direito-previdenciario.png";
+import civilImg from "@/assets/areas/direito-civil.jpg";
+import familiaImg from "@/assets/areas/direito-familia.jpg";
+import criminalImg from "@/assets/areas/direito-criminal.png";
+
 export const AREAS = [
   {
     id: "bancario",
     title: "Direito Bancário",
     short: "Revisão de contratos, juros abusivos e proteção contra abusos das instituições financeiras.",
     full: "Revisão de contratos, juros abusivos, repetição de indébito, negativação indevida e superendividamento. Atuamos contra cláusulas abusivas e na recuperação de valores pagos a maior em contratos bancários, financiamentos e empréstimos.",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800",
+    image: bancarioImg,
   },
   {
     id: "consumidor",
     title: "Direito do Consumidor",
     short: "Defesa dos seus direitos contra práticas abusivas no mercado de consumo.",
     full: "Cancelamento de contratos, danos morais, práticas abusivas, revisão de plano de saúde e ações contra empresas que descumprem o Código de Defesa do Consumidor.",
-    image: "https://images.unsplash.com/photo-1521791136064-7986c29596ad?q=80&w=800",
+    image: consumidorImg,
   },
   {
     id: "imobiliario",
@@ -36,28 +43,28 @@ export const AREAS = [
     title: "Direito Previdenciário",
     short: "Garantimos seus direitos junto ao INSS com técnica e dedicação.",
     full: "Aposentadoria, auxílio-doença, invalidez, pensão por morte, BPC/LOAS. Atuação estratégica para reverter negativas e obter benefícios previdenciários a que você tem direito.",
-    image: "https://images.unsplash.com/photo-1581578731522-aa7c0f058043?q=80&w=800",
+    image: previdenciarioImg,
   },
   {
     id: "civil",
     title: "Direito Civil",
     short: "Soluções jurídicas para conflitos do dia a dia com excelência técnica.",
     full: "Contratos, responsabilidade civil, cobranças, ações possessórias e indenizações. Atendimento personalizado para cada caso, com foco em resultados.",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800",
+    image: civilImg,
   },
   {
     id: "familia",
     title: "Família & Sucessões",
     short: "Atendimento humanizado em momentos sensíveis da sua vida familiar.",
     full: "Divórcio, guarda, alimentos, inventário, testamento e adoção. Acompanhamento sensível e técnico em demandas que envolvem família, patrimônio e relações sucessórias.",
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800",
+    image: familiaImg,
   },
   {
     id: "criminal",
     title: "Direito Criminal",
     short: "Defesa penal estratégica com atuação em todas as instâncias.",
     full: "Defesa penal, habeas corpus, crimes de trânsito e revisão criminal. Atuação ágil e técnica em medidas urgentes e processos criminais em todas as instâncias.",
-    image: "https://images.unsplash.com/photo-1474015977337-539cbaacf550?q=80&w=800",
+    image: criminalImg,
   },
 ];
 

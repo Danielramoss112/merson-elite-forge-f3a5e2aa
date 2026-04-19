@@ -53,8 +53,8 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative reveal flex justify-center lg:justify-end">
-          <div className="relative group">
+        <div className="relative reveal flex justify-center lg:justify-end" style={{ perspective: "1200px" }}>
+          <div className="relative group hero-card-3d">
             <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-gold/40 via-transparent to-gold/20 blur-xl" />
             <div className="relative rounded-[2rem] border-2 border-gold/60 p-2 bg-ink shadow-elegant overflow-hidden">
               <img
@@ -89,6 +89,15 @@ export function Hero() {
       </div>
 
       <style>{`
+        .hero-card-3d {
+          transform-style: preserve-3d;
+          transform: rotateY(4deg);
+          transition: transform 0.6s ease;
+          will-change: transform;
+        }
+        .hero-card-3d:hover {
+          transform: rotateY(0deg);
+        }
         .hero-photo {
           filter: grayscale(100%) brightness(0.85);
           transition: filter 0.4s ease, transform 0.4s ease;
