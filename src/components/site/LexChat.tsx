@@ -3,12 +3,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, Send, MessageCircle } from "lucide-react";
 import { SITE } from "@/lib/site";
 
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
+declare module "react" {
   namespace JSX {
     interface IntrinsicElements {
       "spline-viewer": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & { url?: string; "loading-anim-type"?: string },
+        React.HTMLAttributes<HTMLElement> & {
+          url?: string;
+          "loading-anim-type"?: string;
+        },
         HTMLElement
       >;
     }
