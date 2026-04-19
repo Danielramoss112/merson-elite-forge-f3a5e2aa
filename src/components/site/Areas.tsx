@@ -1,39 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { ArrowRight, X } from "lucide-react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { AREAS, SITE } from "@/lib/site";
 
 export function Areas() {
   const [active, setActive] = useState<(typeof AREAS)[number] | null>(null);
-  const [current, setCurrent] = useState(0);
-  const scrollerRef = useRef<HTMLDivElement>(null);
-
-  // Track mobile carousel current card via IntersectionObserver
-  useEffect(() => {
-    const root = scrollerRef.current;
-    if (!root) return;
-    const cards = root.querySelectorAll<HTMLElement>("[data-area-card]");
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting && e.intersectionRatio > 0.6) {
-            const idx = Number(e.target.getAttribute("data-idx"));
-            if (!Number.isNaN(idx)) setCurrent(idx);
-          }
-        });
-      },
-      { root, threshold: [0.6, 0.9] }
-    );
-    cards.forEach((c) => io.observe(c));
-    return () => io.disconnect();
-  }, []);
-
-  const scrollToIdx = (idx: number) => {
-    const root = scrollerRef.current;
-    if (!root) return;
-    const card = root.querySelector<HTMLElement>(`[data-idx="${idx}"]`);
-    card?.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
-  };
 
   return (
     <section id="areas" className="relative py-28 overflow-hidden">
@@ -54,52 +24,17 @@ export function Areas() {
           </p>
         </div>
 
-        {/* Mobile carousel */}
-        <div className="md:hidden mt-10 -mx-6">
-          <div
-            ref={scrollerRef}
-            className="flex overflow-x-scroll scrollbar-hide"
-            style={{
-              scrollSnapType: "x mandatory",
-              WebkitOverflowScrolling: "touch",
-              gap: 16,
-              padding: "0 20px",
-            }}
-          >
-            {AREAS.map((a, i) => (
-              <div
-                key={a.id}
-                data-area-card
-                data-idx={i}
-                style={{ scrollSnapAlign: "start", flexShrink: 0, minWidth: "80vw" }}
-              >
-                <AreaCardSimple area={a} onOpen={setActive} />
-              </div>
-            ))}
-          </div>
-          <div className="mt-5 flex justify-center gap-2">
-            {AREAS.map((_, i) => (
-              <button
-                key={i}
-                aria-label={`Ir para card ${i + 1}`}
-                onClick={() => scrollToIdx(i)}
-                className="rounded-full transition-all"
-                style={{
-                  width: current === i ? 22 : 8,
-                  height: 8,
-                  background: current === i ? "#c4953a" : "rgba(196,149,58,0.3)",
-                }}
-              />
-            ))}
-          </div>
+        {/* Mobile: horizontal swipe carousel */}
+        <div className="mt-12 sm:hidden -mx-6 px-6 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
+          {AREAS.map((a) => (
+            <AreaCard key={a.id} area={a} onOpen={setActive} className="snap-center shrink-0 w-[78%]" />
+          ))}
         </div>
 
-        {/* Desktop / tablet grid with tilt */}
-        <div className="mt-16 hidden md:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Desktop / tablet grid */}
+        <div className="mt-16 hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {AREAS.map((a) => (
-            <TiltCard key={a.id}>
-              <AreaCardSimple area={a} onOpen={setActive} />
-            </TiltCard>
+            <AreaCard key={a.id} area={a} onOpen={setActive} />
           ))}
         </div>
       </div>
@@ -132,6 +67,8 @@ export function Areas() {
                 </span>
               </h3>
               <p className="mt-4 text-foreground/75 leading-relaxed">{active.full}</p>
+
+              {/* Success rate bar */}
               <div className="mt-6">
                 <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-foreground/60">
                   <span>Taxa de Êxito</span>
@@ -148,6 +85,7 @@ export function Areas() {
                   />
                 </div>
               </div>
+
               <a
                 href={SITE.whatsappUrl}
                 target="_blank"
@@ -166,22 +104,26 @@ export function Areas() {
           from { width: 0%; }
           to { width: 96%; }
         }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { scrollbar-width: none; }
       `}</style>
     </section>
   );
 }
 
-function AreaCardSimple({
+function AreaCard({
   area,
   onOpen,
+  className = "",
 }: {
   area: (typeof AREAS)[number];
   onOpen: (a: (typeof AREAS)[number]) => void;
+  className?: string;
 }) {
   return (
     <button
       onClick={() => onOpen(area)}
-      className="group reveal text-left rounded-2xl overflow-hidden border border-border bg-card hover:border-gold/60 transition-all shadow-elegant hover:-translate-y-1 w-full h-full"
+      className={`group reveal text-left rounded-2xl overflow-hidden border border-border bg-card hover:border-gold/60 transition-all shadow-elegant hover:-translate-y-1 ${className}`}
     >
       <div className="relative h-44 overflow-hidden">
         <img
@@ -200,51 +142,5 @@ function AreaCardSimple({
         </span>
       </div>
     </button>
-  );
-}
-
-function TiltCard({ children }: { children: React.ReactNode }) {
-  const [enabled, setEnabled] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const sx = useSpring(x, { stiffness: 300, damping: 30 });
-  const sy = useSpring(y, { stiffness: 300, damping: 30 });
-  const rotateY = useTransform(sx, [-0.5, 0.5], [-8, 8]);
-  const rotateX = useTransform(sy, [-0.5, 0.5], [8, -8]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    setEnabled(window.matchMedia("(pointer: fine)").matches);
-  }, []);
-
-  if (!enabled) return <>{children}</>;
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={(e) => {
-        const r = ref.current?.getBoundingClientRect();
-        if (!r) return;
-        x.set((e.clientX - r.left) / r.width - 0.5);
-        y.set((e.clientY - r.top) / r.height - 0.5);
-      }}
-      onMouseLeave={() => {
-        x.set(0);
-        y.set(0);
-      }}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d", perspective: 1000 }}
-      className="relative"
-    >
-      {children}
-      <motion.div
-        className="pointer-events-none absolute inset-0 rounded-2xl"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(196,149,58,0.08) 0%, transparent 50%, rgba(196,149,58,0.04) 100%)",
-          opacity: useTransform(sx, [-0.5, 0, 0.5], [0, 0.5, 1]),
-        }}
-      />
-    </motion.div>
   );
 }

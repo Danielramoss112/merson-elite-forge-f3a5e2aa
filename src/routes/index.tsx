@@ -12,11 +12,7 @@ import { Location } from "@/components/site/Location";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { LexChat } from "@/components/site/LexChat";
-import { CustomCursor } from "@/components/site/CustomCursor";
-import { QuickConsult } from "@/components/site/QuickConsult";
-import { ResponseBadge } from "@/components/site/ResponseBadge";
 import { useReveal } from "@/hooks/use-reveal";
-import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,27 +46,8 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   useReveal();
-  const [quickOpen, setQuickOpen] = useState(false);
-
-  useEffect(() => {
-    const onCopy = () => {
-      const selection = window.getSelection()?.toString();
-      if (selection && selection.length > 20) {
-        setTimeout(() => {
-          navigator.clipboard.writeText(
-            selection +
-              "\n\n— Merson Macedo Advocacia & Consultoria | adv.mersontavares@gmail.com"
-          );
-        }, 0);
-      }
-    };
-    document.addEventListener("copy", onCopy);
-    return () => document.removeEventListener("copy", onCopy);
-  }, []);
-
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <CustomCursor />
       <Navbar />
       <Hero />
       <Stats />
@@ -83,8 +60,6 @@ function Index() {
       <Location />
       <Footer />
       <WhatsAppFloat />
-      <ResponseBadge hidden={quickOpen} />
-      <QuickConsult onVisibilityChange={setQuickOpen} />
       <LexChat />
     </main>
   );

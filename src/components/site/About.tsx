@@ -3,7 +3,6 @@ import conquistas from "@/assets/merson-conquistas.jpeg";
 import { ArrowRight } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { useState } from "react";
-import { CareerTimelineModal } from "./CareerTimelineModal";
 
 const slides = [
   { id: "foto", img: merson, label: "Dr. Merson" },
@@ -12,7 +11,6 @@ const slides = [
 
 export function About() {
   const [slide, setSlide] = useState(0);
-  const [modal, setModal] = useState(false);
 
   return (
     <section id="sobre" className="relative py-28 overflow-hidden">
@@ -130,16 +128,17 @@ export function About() {
               </span>
             </div>
 
-            <button
-              onClick={() => setModal(true)}
+            <a
+              href={SITE.whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
               className="mt-4 inline-flex items-center gap-2 text-gold hover:gap-3 transition-all"
             >
               Ver Trajetória Completa <ArrowRight size={16} />
-            </button>
+            </a>
           </div>
         </div>
       </div>
-      <CareerTimelineModal open={modal} onClose={() => setModal(false)} />
     </section>
   );
 }
