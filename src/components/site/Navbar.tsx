@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { Menu, X, Bot } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { SITE } from "@/lib/site";
 
@@ -47,6 +48,12 @@ export function Navbar() {
               {l.label}
             </a>
           ))}
+          <Link
+            to="/lex"
+            className="inline-flex items-center gap-1.5 text-sm text-gold hover:opacity-80 transition-opacity"
+          >
+            <Bot size={16} /> LEX IA
+          </Link>
         </nav>
 
         <a
@@ -79,6 +86,13 @@ export function Navbar() {
               {l.label}
             </a>
           ))}
+          <Link
+            to="/lex"
+            onClick={() => setOpen(false)}
+            className="inline-flex items-center gap-2 text-gold"
+          >
+            <Bot size={16} /> LEX IA
+          </Link>
           <a
             href={SITE.whatsappUrl}
             target="_blank"
