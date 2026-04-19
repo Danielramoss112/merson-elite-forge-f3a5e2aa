@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Send, MessageCircle } from "lucide-react";
 import { SITE } from "@/lib/site";
+import { getLexResponse, QUICK_CHIPS } from "@/lib/lex-responses";
 
 declare module "react" {
   namespace JSX {
@@ -21,72 +22,12 @@ type Msg = {
   id: string;
   from: "lex" | "user";
   text: string;
-  cta?: "whatsapp" | null;
+  cta?: boolean;
   typed?: boolean;
 };
 
 const SPLINE_URL = "https://prod.spline.design/ar717tfpG7qwEW0M/scene.splinecode";
 const SPLINE_VIEWER_SRC = "https://unpkg.com/@splinetool/viewer@1.12.86/build/spline-viewer.js";
-
-const QUICK_CHIPS = [
-  "Direito Bancário",
-  "Direito do Consumidor",
-  "Direito Imobiliário",
-  "Direito Previdenciário",
-  "Direito Civil",
-  "Família & Sucessões",
-  "Direito Criminal",
-  "Falar com Dr. Merson",
-];
-
-const KB: { kw: RegExp; reply: string; cta?: "whatsapp" }[] = [
-  {
-    kw: /(banco|juros|financiamento|empr[eé]stimo|cart[aã]o|d[ií]vida|indevido)/i,
-    reply:
-      "No Direito Bancário posso te ajudar com revisão de contratos com juros abusivos, devolução de valores cobrados indevidamente, defesa em execuções bancárias e negociação de dívidas. Muitos contratos têm cláusulas ilegais! O Dr. Merson pode analisar o seu gratuitamente. Quer agendar uma consulta?",
-  },
-  {
-    kw: /(produto|servi[cç]o|loja|empresa|cancelar|plano|sa[uú]de|seguro|enganado)/i,
-    reply:
-      "No Direito do Consumidor você tem direitos garantidos pelo CDC: cancelamento de contratos, danos morais, negativação indevida e revisão de planos de saúde. O fornecedor tem obrigação de cumprir o que prometeu! Quer conversar com o Dr. Merson?",
-  },
-  {
-    kw: /(im[oó]vel|casa|apartamento|terreno|aluguel|compra|venda|construtora|despejo)/i,
-    reply:
-      "No Direito Imobiliário atuo em compra e venda, regularização, usucapião, despejo e conflitos com construtoras. Toda transação precisa de análise jurídica! Posso conectar você com o Dr. Merson.",
-  },
-  {
-    kw: /(inss|aposentadoria|benef[ií]cio|aux[ií]lio|doen[cç]a|invalidez|pens[aã]o|bpc|loas|negado)/i,
-    reply:
-      "No Direito Previdenciário luto pelos seus benefícios no INSS: aposentadoria, auxílio-doença, pensão por morte e BPC/LOAS. Muitos benefícios negados podem ser revertidos! Quer que o Dr. Merson avalie seu caso?",
-  },
-  {
-    kw: /(contrato|dano|preju[ií]zo|cobrar|vizinho|acidente|indeniza[cç][aã]o)/i,
-    reply:
-      "No Direito Civil resolvo conflitos do dia a dia: contratos, indenizações e rescisões. Se alguém te causou prejuízo, você tem direito à reparação! O Dr. Merson pode avaliar seu caso.",
-  },
-  {
-    kw: /(div[oó]rcio|separa[cç][aã]o|filhos|guarda|pens[aã]o|alimentos|heran[cç]a|invent[aá]rio|testamento)/i,
-    reply:
-      "Na área de Família & Sucessões cuido de divórcio, guarda, pensão, inventário e testamentos com sensibilidade. Cada família merece solução personalizada. Posso agendar com o Dr. Merson?",
-  },
-  {
-    kw: /(preso|crime|policial|delegacia|inqu[eé]rito|habeas|criminal)/i,
-    reply:
-      "No Direito Criminal ofereço defesa em inquéritos, habeas corpus, crimes de trânsito e financeiros. O tempo é crucial — fale com o Dr. Merson agora pelo WhatsApp!",
-  },
-  {
-    kw: /(consulta|agendar|whatsapp|falar|contato|doutor|merson)/i,
-    reply: "O Dr. Merson está disponível agora!",
-    cta: "whatsapp",
-  },
-];
-
-const FALLBACK = {
-  reply:
-    "Para te dar a orientação mais precisa, o ideal é o Dr. Merson avaliar seu caso pessoalmente. Quer agendar pelo WhatsApp?",
-  cta: "whatsapp" as const,
-};
 
 let splineLoaded = false;
 function loadSpline() {
@@ -100,13 +41,6 @@ function loadSpline() {
   s.src = SPLINE_VIEWER_SRC;
   document.head.appendChild(s);
   splineLoaded = true;
-}
-
-function findReply(text: string) {
-  for (const { kw, reply, cta } of KB) {
-    if (kw.test(text)) return { reply, cta: cta ?? null };
-  }
-  return { reply: FALLBACK.reply, cta: FALLBACK.cta };
 }
 
 function uid() {
@@ -165,9 +99,9 @@ export function LexChat() {
     setMessages((m) => [...m, { id: uid(), from: "user", text: userText, typed: true }]);
     setTyping(true);
     await new Promise((r) => setTimeout(r, 800));
-    const { reply, cta } = findReply(userText);
+    const { text, cta } = getLexResponse(userText);
     setTyping(false);
-    setMessages((m) => [...m, { id: uid(), from: "lex", text: reply, cta, typed: false }]);
+    setMessages((m) => [...m, { id: uid(), from: "lex", text, cta, typed: false }]);
   }, []);
 
   const handleSend = () => {
@@ -488,7 +422,7 @@ function Bubble({ msg, isFirst }: { msg: Msg; isFirst: boolean }) {
           <span className="inline-block w-1 h-3 ml-0.5 align-middle" style={{ background: "#c4953a" }} />
         )}
       </div>
-      {msg.cta === "whatsapp" && shown.length === msg.text.length && (
+      {msg.cta && shown.length === msg.text.length && (
         <a
           href={SITE.whatsappUrl}
           target="_blank"
