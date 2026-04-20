@@ -326,11 +326,12 @@ export function LexChat() {
 
       <style>{`
         .lex-fab {
-          animation: lexPulse 2.4s ease-in-out infinite;
+          box-shadow: 0 0 20px rgba(196,149,58,0.25);
+          transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
-        @keyframes lexPulse {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(196,149,58,0.45), 0 0 20px rgba(196,149,58,0.3); }
-          50% { box-shadow: 0 0 0 10px rgba(196,149,58,0), 0 0 28px rgba(196,149,58,0.5); }
+        .lex-fab:hover {
+          box-shadow: 0 0 28px rgba(196,149,58,0.45);
+          transform: scale(1.05);
         }
         .lex-panel {
           left: 28px;
