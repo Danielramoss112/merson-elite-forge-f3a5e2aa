@@ -1,4 +1,4 @@
-import merson from "@/assets/merson-hero.jpeg";
+import merson from "@/assets/merson-hero-new.jpg";
 import conquistas from "@/assets/merson-conquistas.jpg";
 import { ArrowRight } from "lucide-react";
 import { SITE } from "@/lib/site";
