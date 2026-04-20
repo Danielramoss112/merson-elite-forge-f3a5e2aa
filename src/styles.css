@@ -125,16 +125,10 @@ html.cursor-none-mode * {
     color: transparent;
   }
   .deco-circle {
-    position: absolute;
-    border-radius: 9999px;
-    border: 1px solid oklch(0.78 0.13 82 / 0.15);
-    pointer-events: none;
+    display: none;
   }
   .deco-dot {
-    position: absolute;
-    border-radius: 9999px;
-    background: oklch(0.78 0.13 82 / 0.4);
-    pointer-events: none;
+    display: none;
   }
   .reveal {
     opacity: 0;
