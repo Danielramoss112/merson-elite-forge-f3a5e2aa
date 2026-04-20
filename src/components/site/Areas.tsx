@@ -212,6 +212,7 @@ function TiltCard({ children }: { children: React.ReactNode }) {
   const sy = useSpring(y, { stiffness: 300, damping: 30 });
   const rotateY = useTransform(sx, [-0.5, 0.5], [-8, 8]);
   const rotateX = useTransform(sy, [-0.5, 0.5], [8, -8]);
+  const glossOpacity = useTransform(sx, [-0.5, 0, 0.5], [0, 0.5, 1]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -242,7 +243,7 @@ function TiltCard({ children }: { children: React.ReactNode }) {
         style={{
           background:
             "linear-gradient(135deg, rgba(196,149,58,0.08) 0%, transparent 50%, rgba(196,149,58,0.04) 100%)",
-          opacity: useTransform(sx, [-0.5, 0, 0.5], [0, 0.5, 1]),
+          opacity: glossOpacity,
         }}
       />
     </motion.div>
