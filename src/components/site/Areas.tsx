@@ -181,7 +181,7 @@ function AreaCardSimple({
   return (
     <button
       onClick={() => onOpen(area)}
-      className="group reveal text-left rounded-2xl overflow-hidden border border-border bg-card hover:border-gold/60 transition-all shadow-elegant hover:-translate-y-1 w-full h-full"
+      className="group text-left rounded-2xl overflow-hidden border border-border bg-card hover:border-gold/60 transition-all shadow-elegant hover:-translate-y-1 w-full h-full"
     >
       <div className="relative h-52 overflow-hidden bg-card">
         <img
