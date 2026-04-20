@@ -183,14 +183,14 @@ function AreaCardSimple({
       onClick={() => onOpen(area)}
       className="group reveal text-left rounded-2xl overflow-hidden border border-border bg-card hover:border-gold/60 transition-all shadow-elegant hover:-translate-y-1 w-full h-full"
     >
-      <div className="relative h-44 overflow-hidden">
+      <div className="relative h-52 overflow-hidden bg-card">
         <img
           src={area.image}
           alt={area.title}
           loading="lazy"
           className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-card to-transparent pointer-events-none" />
       </div>
       <div className="p-6">
         <h3 className="font-serif text-2xl">{area.title}</h3>
