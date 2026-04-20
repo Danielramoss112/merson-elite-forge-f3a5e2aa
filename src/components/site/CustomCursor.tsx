@@ -8,7 +8,10 @@ export function CustomCursor() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (!window.matchMedia("(pointer: fine)").matches) return;
+    const isFine = window.matchMedia("(pointer: fine)").matches;
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    const isWide = window.innerWidth >= 1024;
+    if (!isFine || isTouch || !isWide) return;
     setEnabled(true);
     document.documentElement.classList.add("cursor-none-mode");
 
