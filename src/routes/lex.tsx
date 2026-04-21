@@ -45,11 +45,54 @@ function LexPage() {
   const respondTo = useCallback(async (userText: string) => {
     setMessages((m) => [...m, { id: uid(), from: "user", text: userText, typed: true }]);
     setTyping(true);
-    await new Promise((r) => setTimeout(r, 800));
-    const { text, cta } = getLexResponse(userText);
+
+    // Build conversation history for AI context
+    const history = messages
+      .filter((m) => m.text)
+      .map((m) => ({ role: m.from === "user" ? "user" : "assistant", content: m.text }));
+    history.push({ role: "user", content: userText });
+
+    let text = "";
+    let cta = false;
+
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/lex-chat`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          },
+          body: JSON.stringify({ messages: history }),
+        }
+      );
+
+      if (res.ok) {
+        const data = await res.json();
+        text = (data?.text || "").trim();
+        cta = !!data?.cta;
+      } else if (res.status === 429) {
+        text = "Estou recebendo muitas mensagens agora. Aguarde alguns segundos e tente novamente, por favor.";
+      } else if (res.status === 402) {
+        const fb = getLexResponse(userText);
+        text = fb.text;
+        cta = fb.cta;
+      }
+    } catch (err) {
+      console.error("LEX AI error:", err);
+    }
+
+    // Fallback to local rules if AI returned nothing
+    if (!text) {
+      const fb = getLexResponse(userText);
+      text = fb.text;
+      cta = fb.cta;
+    }
+
     setTyping(false);
     setMessages((m) => [...m, { id: uid(), from: "lex", text, cta, typed: false }]);
-  }, []);
+  }, [messages]);
 
   const handleSend = () => {
     const t = input.trim();
