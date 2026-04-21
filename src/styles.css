@@ -37,6 +37,7 @@
   --color-ink-soft: var(--ink-soft);
   --color-whatsapp: var(--whatsapp);
   --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-body: "Crimson Pro", "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
@@ -83,19 +84,46 @@
   }
   html {
     scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
   }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "ss01" 1;
+    font-optical-sizing: auto;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5 {
     font-family: var(--font-serif);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "swsh" 1, "salt" 1;
+    font-weight: 500;
+    text-wrap: balance;
   }
+  h1 { letter-spacing: -0.035em; line-height: 1.02; }
+  h2 { letter-spacing: -0.028em; line-height: 1.08; }
   p {
-    line-height: 1.6;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: oklch(0.78 0.13 82 / 0.30);
+    color: var(--color-foreground);
+  }
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  /* Premium serif body utility */
+  .font-body-serif {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+    letter-spacing: 0.005em;
   }
 }
 
