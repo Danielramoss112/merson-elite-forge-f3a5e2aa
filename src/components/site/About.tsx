@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { useState } from "react";
 import { CareerTimelineModal } from "./CareerTimelineModal";
+import { useTextReveal } from "@/hooks/use-text-reveal";
 
 const slides = [
   { id: "foto", img: merson, label: "Dr. Merson" },
