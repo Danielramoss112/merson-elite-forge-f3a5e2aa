@@ -93,7 +93,7 @@ export function About() {
             </div>
           </div>
 
-          <div ref={storyRef} className="reveal space-y-5 text-foreground/80 leading-relaxed font-serif text-[1.15rem] md:text-[1.22rem]">
+          <div ref={storyRef} className="reveal space-y-6 text-foreground/82 leading-[1.75] font-body-serif text-[1.18rem] md:text-[1.28rem]">
             <p data-reveal-text>
               Natural de Alto Parnaíba/MA, o Dr. Merson Borges Tavares de Macedo construiu
               sua trajetória jurídica alicerçada na disciplina acadêmica e na prática
