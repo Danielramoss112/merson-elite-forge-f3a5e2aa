@@ -43,14 +43,14 @@ export function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-foreground/80 hover:text-gold transition-colors"
+              className="nav-link text-sm text-foreground/80 hover:text-gold transition-colors"
             >
               {l.label}
             </a>
           ))}
           <Link
             to="/lex"
-            className="inline-flex items-center gap-1.5 text-sm text-gold hover:opacity-80 transition-opacity"
+            className="nav-link inline-flex items-center gap-1.5 text-sm text-gold hover:opacity-90 transition-opacity"
           >
             <Bot size={16} /> LEX IA
           </Link>
@@ -60,7 +60,7 @@ export function Navbar() {
           href={SITE.whatsappUrl}
           target="_blank"
           rel="noreferrer"
-          className="hidden lg:inline-flex items-center rounded-full border border-gold/60 px-5 py-2 text-sm text-gold hover:bg-gold hover:text-primary-foreground transition-all"
+          className="btn-gold hidden lg:inline-flex items-center rounded-full border border-gold/60 px-5 py-2 text-sm text-gold hover:bg-gold hover:text-primary-foreground"
         >
           Consulta Gratuita
         </a>
