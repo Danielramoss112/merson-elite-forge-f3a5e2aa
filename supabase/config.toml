@@ -1,1 +1,4 @@
 project_id = "hcjfqighimjmuatdpdwb"
+
+[functions.lex-chat]
+verify_jwt = false
