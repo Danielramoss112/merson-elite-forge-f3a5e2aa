@@ -42,13 +42,14 @@ export function Areas() {
 
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center reveal">
-          <span className="inline-block rounded-full border border-gold/40 bg-gold/5 px-4 py-1.5 text-[10px] tracking-[0.22em] uppercase text-gold">
-            Áreas de Atuação
-          </span>
-          <h2 className="mt-5 font-serif text-4xl md:text-5xl">
+          <span className="eyebrow">Áreas de Atuação</span>
+          <h2 className="mt-6 font-serif text-4xl md:text-5xl">
             Experiência que <span className="italic gold-text">Defende</span>
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-foreground/65">
+          <div className="ornament" aria-hidden>
+            <span className="ornament-diamond" />
+          </div>
+          <p className="mt-5 max-w-2xl mx-auto font-body-serif text-[1.1rem] md:text-[1.18rem] text-foreground/70">
             Sete áreas de atuação consolidadas, com método, técnica e atendimento
             humanizado em cada caso.
           </p>

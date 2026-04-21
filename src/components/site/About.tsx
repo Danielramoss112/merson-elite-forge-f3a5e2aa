@@ -22,12 +22,13 @@ export function About() {
 
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center reveal">
-          <span className="inline-block rounded-full border border-gold/40 bg-gold/5 px-4 py-1.5 text-[10px] tracking-[0.22em] uppercase text-gold">
-            Sobre o Advogado
-          </span>
-          <h2 className="mt-5 font-serif text-4xl md:text-5xl">
+          <span className="eyebrow">Sobre o Advogado</span>
+          <h2 className="mt-6 font-serif text-4xl md:text-5xl">
             Dr. Merson <span className="italic gold-text">Macedo</span>
           </h2>
+          <div className="ornament" aria-hidden>
+            <span className="ornament-diamond" />
+          </div>
         </div>
 
         <div className="mt-16 grid lg:grid-cols-2 gap-14 items-start">

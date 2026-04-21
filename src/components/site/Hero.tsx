@@ -46,11 +46,8 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-7xl w-full px-6 grid lg:grid-cols-2 gap-12 items-center">
         <div className="reveal">
-          <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/5 px-4 py-1.5 text-xs tracking-[0.18em] uppercase text-gold">
-            <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-            {SITE.oab}
-          </span>
-          <h1 className="mt-6 font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-[-0.035em]">
+          <span className="eyebrow">{SITE.oab}</span>
+          <h1 className="mt-7 font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-[-0.035em]">
             Justiça com <span className="italic gold-text">Inteligência</span>
             <br />& <span className="italic gold-text">Estratégia.</span>
           </h1>
@@ -58,18 +55,18 @@ export function Hero() {
             Ex-Assessor de Juiz com quase 4 anos no TJMA. Transformamos desafios
             jurídicos complexos em soluções eficazes e personalizadas para sua segurança.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-9 flex flex-wrap gap-4">
             <a
               href={SITE.whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center rounded-full gradient-gold px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-gold hover:opacity-90 transition-all"
+              className="btn-gold inline-flex items-center rounded-full gradient-gold px-7 py-3.5 text-sm font-medium tracking-wide text-primary-foreground shadow-gold"
             >
               Solicitar Consultoria
             </a>
             <a
               href="#areas"
-              className="inline-flex items-center rounded-full border border-foreground/40 px-7 py-3.5 text-sm font-medium text-foreground hover:border-gold hover:text-gold transition-all"
+              className="inline-flex items-center rounded-full border border-foreground/30 px-7 py-3.5 text-sm font-medium tracking-wide text-foreground hover:border-gold hover:text-gold transition-all"
             >
               Áreas de Atuação
             </a>

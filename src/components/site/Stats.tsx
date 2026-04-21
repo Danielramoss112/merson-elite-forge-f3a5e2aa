@@ -12,13 +12,13 @@ const stats: Stat[] = [
 function StatItem({ end, prefix = "", suffix = "", label }: Stat) {
   const [value, ref] = useCountUp(end, 2000);
   return (
-    <div ref={ref as React.RefObject<HTMLDivElement>} className="text-center">
-      <div className="font-serif text-4xl md:text-5xl gold-text">
+    <div ref={ref as React.RefObject<HTMLDivElement>} className="stat-separator text-center px-4 md:px-6">
+      <div className="font-serif text-4xl md:text-5xl gold-text leading-none tracking-tight">
         {prefix}
         {Math.round(value)}
         {suffix}
       </div>
-      <div className="mt-2 text-xs md:text-sm tracking-[0.18em] uppercase text-foreground/65">
+      <div className="mt-3 text-[11px] md:text-xs tracking-[0.22em] uppercase text-foreground/60">
         {label}
       </div>
     </div>
@@ -27,8 +27,8 @@ function StatItem({ end, prefix = "", suffix = "", label }: Stat) {
 
 export function Stats() {
   return (
-    <section className="relative py-16 border-y border-border bg-ink-soft/40">
-      <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section className="relative py-20 border-y border-border bg-ink-soft/40">
+      <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4 gap-y-10">
         {stats.map((s) => (
           <StatItem key={s.label} {...s} />
         ))}
