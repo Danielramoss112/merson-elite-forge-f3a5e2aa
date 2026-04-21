@@ -97,6 +97,18 @@ function LexPage() {
             >
               <Spline scene={SPLINE_URL} style={{ width: "100%", height: "100%" }} />
             </Suspense>
+            {/* Cobre o badge "Built with Spline" */}
+            <div
+              aria-hidden
+              className="absolute pointer-events-none"
+              style={{
+                right: 0,
+                bottom: 0,
+                width: 160,
+                height: 56,
+                background: "#0a0a14",
+              }}
+            />
           </div>
 
           <p
