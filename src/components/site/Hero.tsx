@@ -50,11 +50,11 @@ export function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-gold" />
             {SITE.oab}
           </span>
-          <h1 className="mt-6 font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05]">
+          <h1 className="mt-6 font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-[-0.035em]">
             Justiça com <span className="italic gold-text">Inteligência</span>
             <br />& <span className="italic gold-text">Estratégia.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-base md:text-lg text-foreground/75 leading-relaxed">
+          <p className="mt-7 max-w-xl font-body-serif text-[1.18rem] md:text-[1.26rem] text-foreground/78 leading-[1.6]">
             Ex-Assessor de Juiz com quase 4 anos no TJMA. Transformamos desafios
             jurídicos complexos em soluções eficazes e personalizadas para sua segurança.
           </p>
