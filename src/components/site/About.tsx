@@ -14,6 +14,7 @@ const slides = [
 export function About() {
   const [slide, setSlide] = useState(0);
   const [modal, setModal] = useState(false);
+  const storyRef = useTextReveal<HTMLDivElement>();
 
   return (
     <section id="sobre" className="relative py-28 overflow-hidden">
@@ -92,29 +93,29 @@ export function About() {
             </div>
           </div>
 
-          <div className="reveal space-y-5 text-foreground/80 leading-relaxed">
-            <p>
+          <div ref={storyRef} className="reveal space-y-5 text-foreground/80 leading-relaxed font-serif text-[1.15rem] md:text-[1.22rem]">
+            <p data-reveal-text>
               Natural de Alto Parnaíba/MA, o Dr. Merson Borges Tavares de Macedo construiu
               sua trajetória jurídica alicerçada na disciplina acadêmica e na prática
               forense de excelência. Bacharel em Direito pela UNIRG – Universidade de
               Gurupi/TO, instituição reconhecida pela qualidade do ensino jurídico no
               Centro-Oeste brasileiro.
             </p>
-            <p>
+            <p data-reveal-text>
               Em uma das fases mais formativas de sua carreira, Dr. Merson exerceu por
               quase quatro anos a função de Assessor de Juiz de Direito no Tribunal de
               Justiça do Maranhão (TJMA). Essa experiência ao lado do Poder Judiciário lhe
               proporcionou acesso privilegiado à jurisprudência, à técnica decisória e ao
               entendimento profundo dos critérios que orientam as decisões judiciais.
             </p>
-            <p>
+            <p data-reveal-text>
               Atuou como Assessor e Procurador de Município, função determinante para o
               desenvolvimento de sua visão institucional e capacidade de interpretação das
               normas de direito público. Essa passagem pela gestão pública conferiu ao Dr.
               Merson uma perspectiva estratégica única sobre o funcionamento do Estado e
               seus instrumentos jurídicos.
             </p>
-            <blockquote className="border-l-2 border-gold pl-5 italic text-foreground/85">
+            <blockquote data-reveal-text className="border-l-2 border-gold pl-5 italic text-foreground/85">
               Dr. Merson Borges Tavares de Macedo é o sócio-fundador do escritório Merson
               Macedo – Advocacia & Consultoria, onde dirige uma equipe comprometida com
               a entrega de soluções jurídicas de alto impacto. Sob sua liderança, o

@@ -1,12 +1,35 @@
 import merson from "@/assets/merson-hero.jpeg";
 import { SITE } from "@/lib/site";
+import { useEffect, useRef } from "react";
 
 export function Hero() {
+  const photoRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(hover: none)").matches) return;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (bgRef.current) bgRef.current.style.transform = `translate3d(0, ${y * 0.25}px, 0)`;
+        if (photoRef.current) photoRef.current.style.transform = `translate3d(0, ${y * -0.08}px, 0)`;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <section id="top" className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
       {/* BG */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        ref={bgRef}
+        className="absolute inset-0 bg-cover bg-center will-change-transform"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070')",
@@ -53,7 +76,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative reveal flex justify-center lg:justify-end" style={{ perspective: "1200px" }}>
+        <div ref={photoRef} className="relative reveal flex justify-center lg:justify-end will-change-transform" style={{ perspective: "1200px" }}>
           <div className="relative group hero-card-3d">
             <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-gold/40 via-transparent to-gold/20 blur-xl" />
             <div className="relative rounded-[2rem] border-2 border-gold/60 p-2 bg-ink shadow-elegant overflow-hidden">
