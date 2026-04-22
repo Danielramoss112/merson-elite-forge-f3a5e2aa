@@ -7,7 +7,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 export function DeferredSection({
   children,
   minHeight = 400,
-  rootMargin = "600px 0px",
+  rootMargin = "1200px 0px",
 }: {
   children: ReactNode;
   minHeight?: number;
