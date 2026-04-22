@@ -32,7 +32,7 @@ export function Hero() {
         className="absolute inset-0 bg-cover bg-center will-change-transform"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070')",
+            "url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=60&w=1280&auto=format&fm=webp')",
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
@@ -80,6 +80,10 @@ export function Hero() {
               <img
                 src={merson}
                 alt="Dr. Merson Macedo"
+                fetchPriority="high"
+                decoding="async"
+                width={420}
+                height={540}
                 className="hero-photo rounded-[1.6rem] w-[340px] md:w-[420px] h-[460px] md:h-[540px] object-cover object-top"
               />
             </div>
