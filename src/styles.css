@@ -297,6 +297,94 @@ html.cursor-none-mode * {
 }
 .live-dot { animation: pulse-dot 1.5s ease-in-out infinite; }
 
+@keyframes faq-slide {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.faq-answer { animation: faq-slide 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* Premium card — subtle gold edge glow on hover */
+.card-premium {
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+.card-premium::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--gold) 55%, transparent),
+    transparent 40%,
+    color-mix(in oklch, var(--gold) 25%, transparent) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.card-premium:hover::after { opacity: 1; }
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 60px -24px oklch(0 0 0 / 0.55),
+    0 0 0 1px color-mix(in oklch, var(--gold) 25%, transparent);
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 100;
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--gold) 40%, transparent),
+    var(--gold),
+    color-mix(in oklch, var(--gold) 40%, transparent)
+  );
+  transform-origin: left center;
+  transform: scaleX(var(--scroll, 0));
+  transition: transform 0.1s linear;
+  box-shadow: 0 0 12px color-mix(in oklch, var(--gold) 50%, transparent);
+}
+
+/* Section divider — refined horizontal gold line with sparkle */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 200px;
+}
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--gold) 50%, transparent)
+  );
+}
+.section-divider::after {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--gold) 50%, transparent),
+    transparent
+  );
+}
+
 html { scroll-padding-top: 80px; }
 
 .scrollbar-hide::-webkit-scrollbar { display: none; }
