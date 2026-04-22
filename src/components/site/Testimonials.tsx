@@ -37,12 +37,13 @@ export function Testimonials() {
 
       <div className="mx-auto max-w-5xl px-6">
         <div className="text-center reveal">
-          <span className="inline-block rounded-full border border-gold/40 bg-gold/5 px-4 py-1.5 text-[10px] tracking-[0.22em] uppercase text-gold">
-            Depoimentos
-          </span>
-          <h2 className="mt-5 font-serif text-4xl md:text-5xl">
+          <span className="eyebrow">Depoimentos</span>
+          <h2 className="mt-6 font-serif text-4xl md:text-5xl">
             O Que Dizem os <span className="italic gold-text">Clientes</span>
           </h2>
+          <div className="ornament" aria-hidden>
+            <span className="ornament-diamond" />
+          </div>
         </div>
 
         <div className="mt-14 relative">

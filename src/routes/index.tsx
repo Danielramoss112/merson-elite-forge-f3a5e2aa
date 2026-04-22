@@ -15,6 +15,7 @@ import { LexChat } from "@/components/site/LexChat";
 import { CustomCursor } from "@/components/site/CustomCursor";
 import { QuickConsult } from "@/components/site/QuickConsult";
 import { ResponseBadge } from "@/components/site/ResponseBadge";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { useReveal } from "@/hooks/use-reveal";
 import { useEffect, useState } from "react";
 
@@ -70,6 +71,7 @@ function Index() {
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <ScrollProgress />
       <CustomCursor />
       <Navbar />
       <Hero />

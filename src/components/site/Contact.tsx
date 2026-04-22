@@ -54,13 +54,11 @@ ${form.message}`;
 
       <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-16">
         <div className="reveal">
-          <span className="inline-block rounded-full border border-gold/40 bg-gold/5 px-4 py-1.5 text-[10px] tracking-[0.22em] uppercase text-gold">
-            Contato
-          </span>
-          <h2 className="mt-5 font-serif text-4xl md:text-5xl">
+          <span className="eyebrow">Contato</span>
+          <h2 className="mt-6 font-serif text-4xl md:text-5xl">
             Agende sua <span className="italic gold-text">Consulta</span>
           </h2>
-          <div className="mt-4 h-[2px] w-20 gradient-gold rounded-full" />
+          <div className="mt-5 h-[2px] w-20 gradient-gold rounded-full" />
           <p className="mt-5 text-foreground/70 max-w-md">
             Entre em contato para uma avaliação estratégica do seu caso.
           </p>
