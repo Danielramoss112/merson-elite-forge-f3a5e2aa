@@ -6,7 +6,6 @@ import { Stats } from "@/components/site/Stats";
 import { CustomCursor } from "@/components/site/CustomCursor";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { ResponseBadge } from "@/components/site/ResponseBadge";
-import { DeferredSection } from "@/components/site/DeferredSection";
 import { useReveal } from "@/hooks/use-reveal";
 
 // Below-the-fold sections are code-split to shrink the initial bundle.
@@ -96,14 +95,14 @@ function Index() {
       <Hero />
       <Stats />
       <Suspense fallback={null}>
-        <DeferredSection minHeight={600}><Areas /></DeferredSection>
-        <DeferredSection minHeight={600}><About /></DeferredSection>
-        <DeferredSection minHeight={500}><Intelligence /></DeferredSection>
-        <DeferredSection minHeight={500}><Testimonials /></DeferredSection>
-        <DeferredSection minHeight={500}><Faq /></DeferredSection>
-        <DeferredSection minHeight={600}><Contact /></DeferredSection>
-        <DeferredSection minHeight={400}><Location /></DeferredSection>
-        <DeferredSection minHeight={300}><Footer /></DeferredSection>
+        <Areas />
+        <About />
+        <Intelligence />
+        <Testimonials />
+        <Faq />
+        <Contact />
+        <Location />
+        <Footer />
         <WhatsAppFloat />
         <ResponseBadge hidden={quickOpen} />
         <QuickConsult onVisibilityChange={setQuickOpen} />
