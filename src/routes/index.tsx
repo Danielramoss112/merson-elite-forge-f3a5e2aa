@@ -1,23 +1,42 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { Stats } from "@/components/site/Stats";
-import { Areas } from "@/components/site/Areas";
-import { About } from "@/components/site/About";
-import { Intelligence } from "@/components/site/Intelligence";
-import { Testimonials } from "@/components/site/Testimonials";
-import { Faq } from "@/components/site/Faq";
-import { Contact } from "@/components/site/Contact";
-import { Location } from "@/components/site/Location";
-import { Footer } from "@/components/site/Footer";
-import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
-import { LexChat } from "@/components/site/LexChat";
 import { CustomCursor } from "@/components/site/CustomCursor";
-import { QuickConsult } from "@/components/site/QuickConsult";
-import { ResponseBadge } from "@/components/site/ResponseBadge";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { ResponseBadge } from "@/components/site/ResponseBadge";
+import { DeferredSection } from "@/components/site/DeferredSection";
 import { useReveal } from "@/hooks/use-reveal";
-import { useEffect, useState } from "react";
+
+// Below-the-fold sections are code-split to shrink the initial bundle.
+const Areas = lazy(() => import("@/components/site/Areas").then((m) => ({ default: m.Areas })));
+const About = lazy(() => import("@/components/site/About").then((m) => ({ default: m.About })));
+const Intelligence = lazy(() =>
+  import("@/components/site/Intelligence").then((m) => ({ default: m.Intelligence }))
+);
+const Testimonials = lazy(() =>
+  import("@/components/site/Testimonials").then((m) => ({ default: m.Testimonials }))
+);
+const Faq = lazy(() => import("@/components/site/Faq").then((m) => ({ default: m.Faq })));
+const Contact = lazy(() =>
+  import("@/components/site/Contact").then((m) => ({ default: m.Contact }))
+);
+const Location = lazy(() =>
+  import("@/components/site/Location").then((m) => ({ default: m.Location }))
+);
+const Footer = lazy(() =>
+  import("@/components/site/Footer").then((m) => ({ default: m.Footer }))
+);
+const WhatsAppFloat = lazy(() =>
+  import("@/components/site/WhatsAppFloat").then((m) => ({ default: m.WhatsAppFloat }))
+);
+const LexChat = lazy(() =>
+  import("@/components/site/LexChat").then((m) => ({ default: m.LexChat }))
+);
+const QuickConsult = lazy(() =>
+  import("@/components/site/QuickConsult").then((m) => ({ default: m.QuickConsult }))
+);
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -76,18 +95,20 @@ function Index() {
       <Navbar />
       <Hero />
       <Stats />
-      <Areas />
-      <About />
-      <Intelligence />
-      <Testimonials />
-      <Faq />
-      <Contact />
-      <Location />
-      <Footer />
-      <WhatsAppFloat />
-      <ResponseBadge hidden={quickOpen} />
-      <QuickConsult onVisibilityChange={setQuickOpen} />
-      <LexChat />
+      <Suspense fallback={null}>
+        <DeferredSection minHeight={600}><Areas /></DeferredSection>
+        <DeferredSection minHeight={600}><About /></DeferredSection>
+        <DeferredSection minHeight={500}><Intelligence /></DeferredSection>
+        <DeferredSection minHeight={500}><Testimonials /></DeferredSection>
+        <DeferredSection minHeight={500}><Faq /></DeferredSection>
+        <DeferredSection minHeight={600}><Contact /></DeferredSection>
+        <DeferredSection minHeight={400}><Location /></DeferredSection>
+        <DeferredSection minHeight={300}><Footer /></DeferredSection>
+        <WhatsAppFloat />
+        <ResponseBadge hidden={quickOpen} />
+        <QuickConsult onVisibilityChange={setQuickOpen} />
+        <LexChat />
+      </Suspense>
     </main>
   );
 }
