@@ -9,12 +9,12 @@ export const SITE = {
   address: "SQ 12 Quadra 12 Proj 03 - Loja 28 Sala C, Cidade Ocidental/GO",
 };
 
-import bancarioImg from "@/assets/areas/DIREITO_BANCARIO.png";
+import bancarioImg from "@/assets/areas/DIREITO_BANCARIO.webp";
 import consumidorImg from "@/assets/areas/Direito-do-consumidor.jpg";
-import previdenciarioImg from "@/assets/areas/DIREITO_PREVIDENCIARIO_INSS.png";
+import previdenciarioImg from "@/assets/areas/DIREITO_PREVIDENCIARIO_INSS.webp";
 import civilImg from "@/assets/areas/direito-civil.jpg";
 import familiaImg from "@/assets/areas/Direito_FAMILIA.jpg";
-import criminalImg from "@/assets/areas/DIREITO_CRIMINAL.png";
+import criminalImg from "@/assets/areas/DIREITO_CRIMINAL.webp";
 
 export const AREAS = [
   {

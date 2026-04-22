@@ -1,4 +1,4 @@
-import merson from "@/assets/merson-hero.jpeg";
+import merson from "@/assets/merson-hero.webp";
 import { SITE } from "@/lib/site";
 import { useEffect, useRef } from "react";
 
