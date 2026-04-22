@@ -34,13 +34,13 @@ export function Faq() {
     <section className="relative py-28">
       <div className="mx-auto max-w-3xl px-6">
         <div className="text-center reveal">
-          <span className="inline-block rounded-full border border-gold/40 bg-gold/5 px-4 py-1.5 text-[10px] tracking-[0.22em] uppercase text-gold">
-            Dúvidas Frequentes
-          </span>
-          <h2 className="mt-5 font-serif text-4xl md:text-5xl">
+          <span className="eyebrow">Dúvidas Frequentes</span>
+          <h2 className="mt-6 font-serif text-4xl md:text-5xl">
             Perguntas <span className="italic gold-text">Frequentes</span>
           </h2>
-          <div className="mx-auto mt-4 h-[2px] w-20 gradient-gold rounded-full" />
+          <div className="ornament" aria-hidden>
+            <span className="ornament-diamond" />
+          </div>
         </div>
 
         <div className="mt-12 space-y-3">
@@ -49,22 +49,34 @@ export function Faq() {
             return (
               <div
                 key={idx}
-                className="reveal rounded-2xl border border-border bg-card overflow-hidden transition-all"
+                className={`reveal rounded-2xl border bg-card overflow-hidden transition-all duration-500 ${
+                  isOpen ? "border-gold/50 shadow-gold" : "border-border hover:border-gold/25"
+                }`}
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : idx)}
-                  className="w-full flex items-center gap-4 p-5 md:p-6 text-left"
+                  className="w-full flex items-center gap-4 p-5 md:p-6 text-left group"
+                  aria-expanded={isOpen}
                 >
-                  <HelpCircle className="text-gold shrink-0" size={20} />
-                  <span className="flex-1 font-medium text-foreground/95">{f.q}</span>
-                  {isOpen ? (
-                    <Minus className="text-gold shrink-0" size={20} />
-                  ) : (
-                    <Plus className="text-gold shrink-0" size={20} />
-                  )}
+                  <HelpCircle
+                    className={`text-gold shrink-0 transition-transform duration-500 ${
+                      isOpen ? "scale-110" : "group-hover:scale-105"
+                    }`}
+                    size={20}
+                  />
+                  <span className="flex-1 font-medium text-foreground/95 font-body-serif text-[1.08rem]">
+                    {f.q}
+                  </span>
+                  <span
+                    className={`text-gold shrink-0 transition-transform duration-500 ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
+                  >
+                    {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+                  </span>
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-6 pl-[3.5rem] text-foreground/70 leading-relaxed text-sm">
+                  <div className="faq-answer px-6 pb-6 pl-[3.5rem] text-foreground/70 leading-relaxed font-body-serif text-[1.02rem]">
                     {f.a}
                   </div>
                 )}
