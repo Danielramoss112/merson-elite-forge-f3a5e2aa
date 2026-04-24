@@ -3,51 +3,64 @@ import { SITE } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-border bg-ink py-12">
+    <footer className="relative border-t border-border bg-ink py-16">
       <div className="mx-auto max-w-7xl px-6">
-        {/* Ornamental top divider */}
-        <div className="ornament mb-10" aria-hidden>
-          <span className="ornament-diamond" />
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 items-center">
-          <div className="flex items-center gap-3 justify-center md:justify-start">
-            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 overflow-hidden">
+        <div className="flex flex-col items-center text-center gap-6">
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full overflow-hidden"
+              style={{ border: "1px solid color-mix(in oklch, var(--gold) 35%, transparent)" }}>
               <img src={logo} alt="Logo" className="h-full w-full object-cover" />
             </span>
-            <span className="font-serif text-lg tracking-wide font-light">
+            <span className="font-serif text-base tracking-wide font-light">
               Merson Macedo <span className="italic gold-text">Advogados</span>
             </span>
           </div>
 
-          <p className="text-center font-body-serif text-[0.95rem] text-foreground/60 leading-relaxed">
-            © 2026 Merson Macedo Advogados
-            <br />
-            <span className="text-[0.78rem] text-foreground/55 font-sans">
-              SQ 12 Quadra 12 Proj 03 — Loja 28 Sala C · Cidade Ocidental/GO · CEP 72880-490
-            </span>
-            <br />
-            <span className="text-[0.82rem] tracking-[0.18em] uppercase text-gold/80 font-sans">
-              {SITE.oab}
-            </span>
+          <p className="text-[0.78rem] text-foreground/65 font-sans leading-relaxed max-w-xl">
+            SQ 12 Quadra 12 Proj 03 — Loja 28 Sala C · Centro · Cidade Ocidental/GO · CEP 72880-490
           </p>
 
-          <div className="flex justify-center md:justify-end">
-            <a
-              href={SITE.whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="btn-gold inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white"
-              style={{ backgroundColor: "oklch(0.68 0.18 145)" }}
-            >
-              <svg viewBox="0 0 32 32" className="h-4 w-4" fill="currentColor">
-                <path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.5 2.1 7.9L0 32l8.4-2.5c2.3 1.3 4.9 1.9 7.6 1.9 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4z" />
-              </svg>
-              Falar no WhatsApp
-            </a>
+          <div className="text-[10px] tracking-[0.28em] uppercase text-gold/85 font-sans">
+            {SITE.oab}
+          </div>
+
+          <nav className="flex flex-wrap justify-center gap-x-7 gap-y-3 text-[12px] tracking-wide text-foreground/70">
+            {[
+              { href: "#areas", label: "Áreas" },
+              { href: "#sobre", label: "Sobre" },
+              { href: "#contato", label: "Contato" },
+              { href: "#localizacao", label: "Localização" },
+              { href: SITE.whatsappUrl, label: "WhatsApp", external: true },
+            ].map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                target={l.external ? "_blank" : undefined}
+                rel={l.external ? "noreferrer" : undefined}
+                className="footer-link"
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="mt-4 text-[11px] text-foreground/45 tracking-wide">
+            © {new Date().getFullYear()} Merson Macedo Advogados · Todos os direitos reservados
           </div>
         </div>
       </div>
+
+      <style>{`
+        .footer-link { position: relative; padding-bottom: 2px; transition: color .3s ease; }
+        .footer-link::after {
+          content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
+          background: var(--gold); transform: scaleX(0); transform-origin: left center;
+          transition: transform .45s cubic-bezier(0.65,0,0.35,1);
+        }
+        .footer-link:hover { color: var(--gold); }
+        .footer-link:hover::after { transform: scaleX(1); }
+      `}</style>
     </footer>
   );
 }
+
