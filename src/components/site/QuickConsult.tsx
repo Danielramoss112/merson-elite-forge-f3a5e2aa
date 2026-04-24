@@ -68,23 +68,23 @@ export function QuickConsult({ onVisibilityChange }: { onVisibilityChange?: (v: 
             right: 28,
             width: 280,
             background: "#111",
-            border: "1px solid #c4953a",
+            border: "1px solid #a8b8d0",
             borderRadius: 12,
-            boxShadow: "0 0 30px rgba(196,149,58,0.15)",
+            boxShadow: "0 0 30px rgba(168,184,208,0.15)",
             padding: 18,
           }}
         >
           <button
             onClick={close}
             aria-label="Fechar"
-            className="absolute top-2 right-2 h-7 w-7 rounded-full hover:bg-white/5 flex items-center justify-center text-white/60 hover:text-[#c4953a]"
+            className="absolute top-2 right-2 h-7 w-7 rounded-full hover:bg-white/5 flex items-center justify-center text-white/60 hover:text-[#a8b8d0]"
           >
             <X size={14} />
           </button>
           <div className="flex items-start gap-3">
             <div
               className="h-9 w-9 shrink-0 rounded-full flex items-center justify-center"
-              style={{ background: "rgba(196,149,58,0.15)", color: "#c4953a" }}
+              style={{ background: "rgba(168,184,208,0.15)", color: "#a8b8d0" }}
             >
               <MessageCircle size={18} />
             </div>

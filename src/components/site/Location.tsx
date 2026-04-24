@@ -10,7 +10,7 @@ export function Location() {
     <section
       id="localizacao"
       className="relative py-24 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #0c0c0d 0%, #131210 100%)" }}
+      style={{ background: "linear-gradient(180deg, #0a1426 0%, #101a30 100%)" }}
     >
       <div className="deco-circle" style={{ width: 320, height: 320, top: -120, left: -120 }} />
 
@@ -29,7 +29,7 @@ export function Location() {
           <div className="lg:col-span-2 reveal">
             <div
               className="overflow-hidden rounded-3xl shadow-elegant"
-              style={{ border: "1px solid rgba(196,149,58,0.5)" }}
+              style={{ border: "1px solid rgba(168,184,208,0.5)" }}
             >
               <iframe
                 title="Mapa do escritório Merson Macedo Advocacia"
@@ -64,8 +64,8 @@ export function Location() {
               rel="noreferrer"
               className="mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
               style={{
-                background: "linear-gradient(135deg, #c4953a, #dbb568)",
-                boxShadow: "0 10px 30px -10px rgba(196,149,58,0.55)",
+                background: "linear-gradient(135deg, #a8b8d0, #cdd6e3)",
+                boxShadow: "0 10px 30px -10px rgba(168,184,208,0.55)",
               }}
             >
               Abrir no Google Maps <ArrowRight size={16} />

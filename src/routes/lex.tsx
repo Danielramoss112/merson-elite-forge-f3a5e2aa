@@ -108,7 +108,7 @@ function LexPage() {
       <div className="absolute top-6 left-6 z-50">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-[#c4953a] transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-[#a8b8d0] transition-colors"
         >
           <ArrowLeft size={16} /> Voltar
         </Link>
@@ -122,7 +122,7 @@ function LexPage() {
         >
           <span
             className="rounded-full border px-4 py-1.5 text-[10px] tracking-[0.22em] uppercase"
-            style={{ borderColor: "rgba(196,149,58,0.5)", color: "#c4953a", background: "rgba(196,149,58,0.05)" }}
+            style={{ borderColor: "rgba(168,184,208,0.5)", color: "#a8b8d0", background: "rgba(168,184,208,0.05)" }}
           >
             LEX — Assistente Jurídico
           </span>
@@ -133,7 +133,7 @@ function LexPage() {
           >
             <Suspense
               fallback={
-                <div className="h-full w-full flex items-center justify-center text-[#c4953a]/60 text-sm">
+                <div className="h-full w-full flex items-center justify-center text-[#a8b8d0]/60 text-sm">
                   Carregando LEX 3D…
                 </div>
               }
@@ -163,14 +163,14 @@ function LexPage() {
         </div>
 
         {/* Right: Chat */}
-        <div className="flex items-center justify-center p-4 lg:p-8" style={{ background: "#0c0c0d" }}>
+        <div className="flex items-center justify-center p-4 lg:p-8" style={{ background: "#0a1426" }}>
           <div
             className="flex flex-col w-full"
             style={{
               maxWidth: 560,
               height: "80vh",
               background: "rgba(12,12,13,0.95)",
-              border: "1px solid rgba(196,149,58,0.3)",
+              border: "1px solid rgba(168,184,208,0.3)",
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
               borderRadius: 16,
@@ -180,13 +180,13 @@ function LexPage() {
             {/* Header */}
             <div
               className="px-5 py-4 shrink-0"
-              style={{ borderBottom: "1px solid rgba(196,149,58,0.25)", background: "#111" }}
+              style={{ borderBottom: "1px solid rgba(168,184,208,0.25)", background: "#111" }}
             >
               <div
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
                   fontSize: 28,
-                  color: "#c4953a",
+                  color: "#a8b8d0",
                   lineHeight: 1,
                   letterSpacing: "-0.02em",
                 }}
@@ -212,7 +212,7 @@ function LexPage() {
                     className="px-3 py-2 inline-flex gap-1"
                     style={{
                       background: "#1a1a1a",
-                      border: "1px solid rgba(196,149,58,0.35)",
+                      border: "1px solid rgba(168,184,208,0.35)",
                       borderRadius: "0 12px 12px 12px",
                     }}
                   >
@@ -229,8 +229,8 @@ function LexPage() {
                     <button
                       key={c}
                       onClick={() => respondTo(c)}
-                      className="text-[11px] px-3 py-1.5 rounded-full border transition-colors hover:bg-[rgba(196,149,58,0.1)]"
-                      style={{ borderColor: "#c4953a", color: "#c4953a" }}
+                      className="text-[11px] px-3 py-1.5 rounded-full border transition-colors hover:bg-[rgba(168,184,208,0.1)]"
+                      style={{ borderColor: "#a8b8d0", color: "#a8b8d0" }}
                     >
                       {c}
                     </button>
@@ -243,7 +243,7 @@ function LexPage() {
                   <button
                     onClick={() => respondTo("Saber mais")}
                     className="text-[11px] px-3 py-1.5 rounded-full border"
-                    style={{ borderColor: "#c4953a", color: "#c4953a" }}
+                    style={{ borderColor: "#a8b8d0", color: "#a8b8d0" }}
                   >
                     Saber mais
                   </button>
@@ -252,7 +252,7 @@ function LexPage() {
                     target="_blank"
                     rel="noreferrer"
                     className="text-[11px] px-3 py-1.5 rounded-full"
-                    style={{ background: "#c4953a", color: "#000" }}
+                    style={{ background: "#a8b8d0", color: "#000" }}
                   >
                     Falar com Dr. Merson →
                   </a>
@@ -263,7 +263,7 @@ function LexPage() {
             {/* Input */}
             <div
               className="p-3 shrink-0 flex items-center gap-2"
-              style={{ background: "#111", borderTop: "1px solid rgba(196,149,58,0.2)" }}
+              style={{ background: "#111", borderTop: "1px solid rgba(168,184,208,0.2)" }}
             >
               <input
                 value={input}
@@ -271,15 +271,15 @@ function LexPage() {
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
                 placeholder="Digite sua dúvida jurídica..."
                 className="flex-1 h-10 px-3 rounded-full text-sm text-white placeholder:text-white/40 outline-none"
-                style={{ background: "#1a1a1a", border: "1px solid rgba(196,149,58,0.2)" }}
-                onFocus={(e) => (e.currentTarget.style.borderColor = "#c4953a")}
-                onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(196,149,58,0.2)")}
+                style={{ background: "#1a1a1a", border: "1px solid rgba(168,184,208,0.2)" }}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "#a8b8d0")}
+                onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(168,184,208,0.2)")}
               />
               <button
                 onClick={handleSend}
                 aria-label="Enviar"
                 className="h-10 w-10 rounded-full flex items-center justify-center"
-                style={{ background: "rgba(196,149,58,0.15)", color: "#c4953a" }}
+                style={{ background: "rgba(168,184,208,0.15)", color: "#a8b8d0" }}
               >
                 <Send size={16} />
               </button>
@@ -295,7 +295,7 @@ function Dot({ d }: { d: number }) {
   return (
     <span
       className="inline-block h-1.5 w-1.5 rounded-full"
-      style={{ background: "#c4953a", animation: "lexDot 1s ease-in-out infinite", animationDelay: `${d}ms` }}
+      style={{ background: "#a8b8d0", animation: "lexDot 1s ease-in-out infinite", animationDelay: `${d}ms` }}
     />
   );
 }
@@ -323,7 +323,7 @@ function ChatBubble({ msg }: { msg: Msg }) {
       <div className="flex justify-end">
         <div
           className="max-w-[85%] px-3 py-2 text-[14px]"
-          style={{ background: "#c4953a", color: "#000", borderRadius: "12px 0 12px 12px" }}
+          style={{ background: "#a8b8d0", color: "#000", borderRadius: "12px 0 12px 12px" }}
         >
           {msg.text}
         </div>
@@ -337,14 +337,14 @@ function ChatBubble({ msg }: { msg: Msg }) {
         className="max-w-[88%] px-3 py-2 text-[14px] text-white"
         style={{
           background: "#1a1a1a",
-          border: "1px solid rgba(196,149,58,0.35)",
+          border: "1px solid rgba(168,184,208,0.35)",
           borderRadius: "0 12px 12px 12px",
           lineHeight: 1.55,
         }}
       >
         {shown}
         {shown.length < msg.text.length && (
-          <span className="inline-block w-1 h-3 ml-0.5 align-middle" style={{ background: "#c4953a" }} />
+          <span className="inline-block w-1 h-3 ml-0.5 align-middle" style={{ background: "#a8b8d0" }} />
         )}
       </div>
       {msg.cta && shown.length === msg.text.length && (

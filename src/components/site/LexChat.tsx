@@ -133,7 +133,7 @@ export function LexChat() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 8 }}
               onClick={() => setOpen(true)}
-              className="ml-1 rounded-full bg-[#c4953a] text-black text-[11px] font-medium px-3 py-1.5 shadow-[0_4px_18px_rgba(196,149,58,0.35)]"
+              className="ml-1 rounded-full bg-[#a8b8d0] text-black text-[11px] font-medium px-3 py-1.5 shadow-[0_4px_18px_rgba(168,184,208,0.35)]"
             >
               LEX — Tire sua dúvida
             </motion.button>
@@ -145,11 +145,11 @@ export function LexChat() {
           onClick={() => setOpen((v) => !v)}
           className="lex-fab relative h-[58px] w-[58px] rounded-full flex items-center justify-center"
           style={{
-            background: "#0c0c0d",
-            border: "1.5px solid #c4953a",
+            background: "#0a1426",
+            border: "1.5px solid #a8b8d0",
           }}
         >
-          <MessageCircle size={22} className="text-[#c4953a]" />
+          <MessageCircle size={22} className="text-[#a8b8d0]" />
         </button>
       </div>
 
@@ -167,18 +167,18 @@ export function LexChat() {
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
               background: "rgba(12,12,13,0.85)",
-              border: "1px solid rgba(196,149,58,0.3)",
-              boxShadow: "0 0 40px rgba(196,149,58,0.15)",
+              border: "1px solid rgba(168,184,208,0.3)",
+              boxShadow: "0 0 40px rgba(168,184,208,0.15)",
             }}
           >
             {/* Header */}
             <div
               className="relative flex items-center gap-3 px-4 py-3 shrink-0"
-              style={{ background: "#111", borderBottom: "1px solid rgba(196,149,58,0.35)" }}
+              style={{ background: "#111", borderBottom: "1px solid rgba(168,184,208,0.35)" }}
             >
               <div
                 className="relative h-[100px] w-[100px] shrink-0 rounded-xl overflow-hidden"
-                style={{ pointerEvents: "none", background: "#0c0c0d" }}
+                style={{ pointerEvents: "none", background: "#0a1426" }}
               >
                 {splineReady ? (
                   <spline-viewer
@@ -187,7 +187,7 @@ export function LexChat() {
                     loading-anim-type="none"
                   />
                 ) : (
-                  <div className="h-full w-full flex items-center justify-center text-[#c4953a] text-xs">
+                  <div className="h-full w-full flex items-center justify-center text-[#a8b8d0] text-xs">
                     LEX
                   </div>
                 )}
@@ -198,7 +198,7 @@ export function LexChat() {
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
                     fontSize: 24,
-                    color: "#c4953a",
+                    color: "#a8b8d0",
                     lineHeight: 1,
                     letterSpacing: "-0.02em",
                   }}
@@ -217,7 +217,7 @@ export function LexChat() {
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Fechar"
-                className="absolute top-2 right-2 h-8 w-8 rounded-full hover:bg-white/5 flex items-center justify-center text-white/70 hover:text-[#c4953a]"
+                className="absolute top-2 right-2 h-8 w-8 rounded-full hover:bg-white/5 flex items-center justify-center text-white/70 hover:text-[#a8b8d0]"
               >
                 <X size={16} />
               </button>
@@ -227,7 +227,7 @@ export function LexChat() {
             <div
               ref={scrollerRef}
               className="flex-1 overflow-y-auto px-4 py-4 space-y-3"
-              style={{ background: "#0c0c0d", fontFamily: "'Crimson Pro', serif" }}
+              style={{ background: "#0a1426", fontFamily: "'Crimson Pro', serif" }}
             >
               {messages.map((m, i) => (
                 <Bubble key={m.id} msg={m} isFirst={i === 0} />
@@ -239,7 +239,7 @@ export function LexChat() {
                     className="px-3 py-2 inline-flex gap-1"
                     style={{
                       background: "#1a1a1a",
-                      border: "1px solid rgba(196,149,58,0.35)",
+                      border: "1px solid rgba(168,184,208,0.35)",
                       borderRadius: "0 12px 12px 12px",
                     }}
                   >
@@ -258,8 +258,8 @@ export function LexChat() {
                       key={c}
                       onClick={() => handleChip(c)}
                       className="text-[11px] px-3 py-1.5 rounded-full border transition-colors"
-                      style={{ borderColor: "#c4953a", color: "#c4953a" }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(196,149,58,0.1)")}
+                      style={{ borderColor: "#a8b8d0", color: "#a8b8d0" }}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(168,184,208,0.1)")}
                       onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                     >
                       {c}
@@ -274,7 +274,7 @@ export function LexChat() {
                   <button
                     onClick={() => respondTo("Saber mais")}
                     className="text-[11px] px-3 py-1.5 rounded-full border"
-                    style={{ borderColor: "#c4953a", color: "#c4953a" }}
+                    style={{ borderColor: "#a8b8d0", color: "#a8b8d0" }}
                   >
                     Saber mais
                   </button>
@@ -283,7 +283,7 @@ export function LexChat() {
                     target="_blank"
                     rel="noreferrer"
                     className="text-[11px] px-3 py-1.5 rounded-full"
-                    style={{ background: "#c4953a", color: "#000" }}
+                    style={{ background: "#a8b8d0", color: "#000" }}
                   >
                     Falar com Dr. Merson →
                   </a>
@@ -294,7 +294,7 @@ export function LexChat() {
             {/* Input */}
             <div
               className="p-3 shrink-0 flex items-center gap-2"
-              style={{ background: "#111", borderTop: "1px solid rgba(196,149,58,0.2)" }}
+              style={{ background: "#111", borderTop: "1px solid rgba(168,184,208,0.2)" }}
             >
               <input
                 value={input}
@@ -306,16 +306,16 @@ export function LexChat() {
                 className="flex-1 h-10 px-3 rounded-full text-sm text-white placeholder:text-white/40 outline-none transition-colors"
                 style={{
                   background: "#1a1a1a",
-                  border: "1px solid rgba(196,149,58,0.2)",
+                  border: "1px solid rgba(168,184,208,0.2)",
                 }}
-                onFocus={(e) => (e.currentTarget.style.borderColor = "#c4953a")}
-                onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(196,149,58,0.2)")}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "#a8b8d0")}
+                onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(168,184,208,0.2)")}
               />
               <button
                 onClick={handleSend}
                 aria-label="Enviar"
                 className="h-10 w-10 rounded-full flex items-center justify-center"
-                style={{ background: "rgba(196,149,58,0.15)", color: "#c4953a" }}
+                style={{ background: "rgba(168,184,208,0.15)", color: "#a8b8d0" }}
               >
                 <Send size={16} />
               </button>
@@ -326,11 +326,11 @@ export function LexChat() {
 
       <style>{`
         .lex-fab {
-          box-shadow: 0 0 20px rgba(196,149,58,0.25);
+          box-shadow: 0 0 20px rgba(168,184,208,0.25);
           transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
         .lex-fab:hover {
-          box-shadow: 0 0 28px rgba(196,149,58,0.45);
+          box-shadow: 0 0 28px rgba(168,184,208,0.45);
           transform: scale(1.05);
         }
         .lex-panel {
@@ -364,7 +364,7 @@ function Dot({ delay }: { delay: number }) {
     <span
       className="inline-block h-1.5 w-1.5 rounded-full"
       style={{
-        background: "#c4953a",
+        background: "#a8b8d0",
         animation: "lexDot 1s ease-in-out infinite",
         animationDelay: `${delay}ms`,
       }}
@@ -396,7 +396,7 @@ function Bubble({ msg, isFirst }: { msg: Msg; isFirst: boolean }) {
         <div
           className="max-w-[85%] px-3 py-2 text-[14px]"
           style={{
-            background: "#c4953a",
+            background: "#a8b8d0",
             color: "#000",
             borderRadius: "12px 0 12px 12px",
           }}
@@ -413,14 +413,14 @@ function Bubble({ msg, isFirst }: { msg: Msg; isFirst: boolean }) {
         className="max-w-[88%] px-3 py-2 text-[14px] text-white"
         style={{
           background: "#1a1a1a",
-          border: "1px solid rgba(196,149,58,0.35)",
+          border: "1px solid rgba(168,184,208,0.35)",
           borderRadius: "0 12px 12px 12px",
           lineHeight: 1.5,
         }}
       >
         {shown}
         {shown.length < msg.text.length && (
-          <span className="inline-block w-1 h-3 ml-0.5 align-middle" style={{ background: "#c4953a" }} />
+          <span className="inline-block w-1 h-3 ml-0.5 align-middle" style={{ background: "#a8b8d0" }} />
         )}
       </div>
       {msg.cta && shown.length === msg.text.length && (
