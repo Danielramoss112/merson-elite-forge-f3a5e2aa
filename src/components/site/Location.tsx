@@ -44,7 +44,7 @@ export function Location() {
             </div>
           </div>
 
-          <div className="reveal flex flex-col justify-center rounded-3xl border border-gold/30 bg-card/60 p-8 shadow-elegant">
+          <div className="reveal flex flex-col justify-center items-center text-center rounded-3xl border border-gold/30 bg-card/60 p-8 shadow-elegant">
             <div className="flex items-center gap-3 text-gold">
               <MapPin size={22} />
               <span className="text-[10px] uppercase tracking-[0.22em]">Endereço</span>
@@ -52,16 +52,18 @@ export function Location() {
             <h3 className="mt-3 font-serif text-2xl leading-snug">
               Escritório <span className="italic gold-text">Cidade Ocidental/GO</span>
             </h3>
-            <p className="mt-4 text-foreground/80 leading-relaxed">
-              SQ 12, Quadra 12, Projeção 03<br />
+            <p className="mt-4 text-foreground/85 leading-relaxed">
+              SQ 12 Quadra 12 Proj 03<br />
               Loja 28 — Sala C<br />
-              Cidade Ocidental — GO
+              Centro · Cidade Ocidental/GO<br />
+              CEP 72880-490
             </p>
 
             <a
               href={mapsUrl}
               target="_blank"
               rel="noreferrer"
+              data-magnetic
               className="mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
               style={{
                 background: "linear-gradient(135deg, #a8b8d0, #cdd6e3)",
