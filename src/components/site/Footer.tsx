@@ -15,13 +15,17 @@ export function Footer() {
             <span className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 overflow-hidden">
               <img src={logo} alt="Logo" className="h-full w-full object-cover" />
             </span>
-            <span className="font-serif text-lg tracking-wide">
-              Merson <span className="italic gold-text">Macedo</span>
+            <span className="font-serif text-lg tracking-wide font-light">
+              Merson Macedo <span className="italic gold-text">Advogados</span>
             </span>
           </div>
 
           <p className="text-center font-body-serif text-[0.95rem] text-foreground/60 leading-relaxed">
-            © 2026 Merson Macedo Advocacia &amp; Consultoria Estratégica
+            © 2026 Merson Macedo Advogados
+            <br />
+            <span className="text-[0.78rem] text-foreground/55 font-sans">
+              SQ 12 Quadra 12 Proj 03 — Loja 28 Sala C · Cidade Ocidental/GO · CEP 72880-490
+            </span>
             <br />
             <span className="text-[0.82rem] tracking-[0.18em] uppercase text-gold/80 font-sans">
               {SITE.oab}

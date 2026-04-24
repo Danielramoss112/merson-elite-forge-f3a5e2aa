@@ -55,7 +55,7 @@ export function CustomCursor() {
         ref={dotRef}
         className="pointer-events-none fixed top-0 left-0 z-[9999] h-1.5 w-1.5 rounded-full"
         style={{
-          background: "#c4953a",
+          background: "#a8b8d0",
           opacity: hovering ? 0 : 1,
           transition: "opacity 150ms",
         }}
@@ -66,8 +66,8 @@ export function CustomCursor() {
         style={{
           width: hovering ? 44 : 28,
           height: hovering ? 44 : 28,
-          border: "1px solid #c4953a",
-          background: hovering ? "rgba(196,149,58,0.15)" : "transparent",
+          border: "1px solid #a8b8d0",
+          background: hovering ? "rgba(168,184,208,0.15)" : "transparent",
           opacity: hovering ? 1 : 0.5,
           transition: "width 200ms, height 200ms, background 200ms, opacity 200ms",
         }}

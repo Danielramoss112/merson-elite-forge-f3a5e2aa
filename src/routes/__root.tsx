@@ -29,18 +29,22 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Golden Justice is a premium website for a law firm, offering a sophisticated digital presence." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Golden Justice is a premium website for a law firm, offering a sophisticated digital presence." },
+      { title: "Merson Macedo Advogados | Advocacia & Consultoria Estratégica" },
+      {
+        name: "description",
+        content:
+          "Escritório Merson Macedo Advogados — atuação estratégica em Direito Bancário, Previdenciário, Civil, Família e Criminal. OAB/MA 15.972 · OAB/GO 69.793-A · Cidade Ocidental/GO.",
+      },
+      { name: "author", content: "Merson Macedo Advogados" },
+      { name: "theme-color", content: "#00234E" },
+      { property: "og:title", content: "Merson Macedo Advogados | Advocacia & Consultoria Estratégica" },
+      {
+        property: "og:description",
+        content:
+          "Justiça com inteligência e estratégia. Sócio-proprietário com trajetória de quase 4 anos como Assessor de Juiz no TJMA e 3 anos como Procurador Municipal.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Golden Justice is a premium website for a law firm, offering a sophisticated digital presence." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/feab71b2-8487-4c94-bc61-cb2ce6a754dd/id-preview-26c38c6e--614408f7-a34a-41f1-99c1-a606c1b5acc2.lovable.app-1776486288213.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/feab71b2-8487-4c94-bc61-cb2ce6a754dd/id-preview-26c38c6e--614408f7-a34a-41f1-99c1-a606c1b5acc2.lovable.app-1776486288213.png" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -48,7 +52,7 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap",
       },
     ],
   }),

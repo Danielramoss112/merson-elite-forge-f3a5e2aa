@@ -46,7 +46,7 @@ export function CareerTimelineModal({ open, onClose }: { open: boolean; onClose:
             style={{
               maxWidth: 560,
               background: "#111",
-              border: "1px solid rgba(196,149,58,0.3)",
+              border: "1px solid rgba(168,184,208,0.3)",
               borderRadius: 16,
               padding: "48px 32px",
             }}
@@ -55,7 +55,7 @@ export function CareerTimelineModal({ open, onClose }: { open: boolean; onClose:
             <button
               onClick={onClose}
               aria-label="Fechar"
-              className="absolute top-4 right-4 h-9 w-9 rounded-full hover:bg-white/5 flex items-center justify-center text-white/70 hover:text-[#c4953a]"
+              className="absolute top-4 right-4 h-9 w-9 rounded-full hover:bg-white/5 flex items-center justify-center text-white/70 hover:text-[#a8b8d0]"
             >
               <X size={18} />
             </button>
@@ -65,7 +65,7 @@ export function CareerTimelineModal({ open, onClose }: { open: boolean; onClose:
                 fontFamily: "'Cormorant Garamond', serif",
                 fontStyle: "italic",
                 fontSize: 28,
-                color: "#c4953a",
+                color: "#a8b8d0",
                 letterSpacing: "-0.02em",
                 lineHeight: 1.15,
               }}
@@ -84,7 +84,7 @@ export function CareerTimelineModal({ open, onClose }: { open: boolean; onClose:
                   top: 6,
                   bottom: 6,
                   width: 2,
-                  background: "linear-gradient(180deg, #a67c2e, #dbb568, #c4953a)",
+                  background: "linear-gradient(180deg, #a67c2e, #cdd6e3, #a8b8d0)",
                   transformOrigin: "top",
                 }}
               />
@@ -105,11 +105,11 @@ export function CareerTimelineModal({ open, onClose }: { open: boolean; onClose:
                         width: 14,
                         height: 14,
                         borderRadius: 999,
-                        background: "#c4953a",
-                        boxShadow: "0 0 0 4px #111, 0 0 12px rgba(196,149,58,0.6)",
+                        background: "#a8b8d0",
+                        boxShadow: "0 0 0 4px #111, 0 0 12px rgba(168,184,208,0.6)",
                       }}
                     />
-                    <div className="text-sm font-bold" style={{ color: "#c4953a" }}>
+                    <div className="text-sm font-bold" style={{ color: "#a8b8d0" }}>
                       {m.year}
                     </div>
                     <div className="text-[16px] text-white mt-0.5">{m.title}</div>
@@ -128,7 +128,7 @@ export function CareerTimelineModal({ open, onClose }: { open: boolean; onClose:
               onClick={onClose}
               className="mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium"
               style={{
-                background: "linear-gradient(135deg, #a67c2e 0%, #c4953a 40%, #dbb568 70%, #c4953a 100%)",
+                background: "linear-gradient(135deg, #a67c2e 0%, #a8b8d0 40%, #cdd6e3 70%, #a8b8d0 100%)",
                 color: "#000",
               }}
             >

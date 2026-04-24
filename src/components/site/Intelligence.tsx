@@ -108,8 +108,8 @@ export function Intelligence() {
               <Scale className="text-gold" size={28} />
               <h4 className="mt-3 font-serif text-xl">Expertise Comprovada</h4>
               <p className="mt-2 text-sm text-foreground/70">
-                Mais de 10 anos atuando em tribunais estaduais e federais, com domínio
-                técnico e estratégico.
+                Atuação técnica e estratégica em tribunais estaduais e federais,
+                com domínio de jurisprudência e processo decisório.
               </p>
             </div>
           </div>

@@ -5,10 +5,11 @@ import logo from "@/assets/logo.webp";
 import { SITE } from "@/lib/site";
 
 const links = [
-  { href: "#areas", label: "Áreas de Atuação" },
-  { href: "#sobre", label: "O Doutor" },
-  { href: "#depoimentos", label: "Depoimentos" },
-  { href: "#contato", label: "Contato" },
+  { href: "/#areas", label: "Áreas de Atuação" },
+  { href: "/#sobre", label: "O Doutor" },
+  { href: "/resultados", label: "Resultados", route: true },
+  { href: "/blog", label: "Blog", route: true },
+  { href: "/#contato", label: "Contato" },
 ];
 
 export function Navbar() {
@@ -33,8 +34,8 @@ export function Navbar() {
           <span className="flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 bg-ink overflow-hidden">
             <img src={logo} alt="Logo Merson Macedo" className="h-full w-full object-cover" />
           </span>
-          <span className="font-serif text-lg tracking-wide">
-            Merson <span className="italic gold-text">Macedo</span>
+          <span className="font-serif text-lg tracking-wide font-light">
+            Merson Macedo <span className="italic gold-text">Advogados</span>
           </span>
         </a>
 

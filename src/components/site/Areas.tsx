@@ -88,7 +88,7 @@ export function Areas() {
                 style={{
                   width: current === i ? 22 : 8,
                   height: 8,
-                  background: current === i ? "#c4953a" : "rgba(196,149,58,0.3)",
+                  background: current === i ? "#a8b8d0" : "rgba(168,184,208,0.3)",
                 }}
               />
             ))}
@@ -143,7 +143,7 @@ export function Areas() {
                     className="h-full rounded-full"
                     style={{
                       width: "96%",
-                      background: "linear-gradient(90deg, #c4953a, #dbb568)",
+                      background: "linear-gradient(90deg, #a8b8d0, #cdd6e3)",
                       animation: "growBar 1.2s ease-out",
                     }}
                   />
@@ -243,7 +243,7 @@ function TiltCard({ children }: { children: React.ReactNode }) {
         className="pointer-events-none absolute inset-0 rounded-2xl"
         style={{
           background:
-            "linear-gradient(135deg, rgba(196,149,58,0.08) 0%, transparent 50%, rgba(196,149,58,0.04) 100%)",
+            "linear-gradient(135deg, rgba(168,184,208,0.08) 0%, transparent 50%, rgba(168,184,208,0.04) 100%)",
           opacity: glossOpacity,
         }}
       />

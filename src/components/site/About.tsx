@@ -98,30 +98,29 @@ export function About() {
             <p data-reveal-text>
               Natural de Alto Parnaíba/MA, o Dr. Merson Borges Tavares de Macedo construiu
               sua trajetória jurídica alicerçada na disciplina acadêmica e na prática
-              forense de excelência. Bacharel em Direito pela UNIRG – Universidade de
-              Gurupi/TO, instituição reconhecida pela qualidade do ensino jurídico no
-              Centro-Oeste brasileiro.
+              forense de excelência. Bacharel em Direito pela UNIRG — Universidade de
+              Gurupi/TO, instituição reconhecida pela qualidade do ensino jurídico.
             </p>
             <p data-reveal-text>
-              Em uma das fases mais formativas de sua carreira, Dr. Merson exerceu por
-              quase quatro anos a função de Assessor de Juiz de Direito no Tribunal de
-              Justiça do Maranhão (TJMA). Essa experiência ao lado do Poder Judiciário lhe
-              proporcionou acesso privilegiado à jurisprudência, à técnica decisória e ao
-              entendimento profundo dos critérios que orientam as decisões judiciais.
+              Em uma das fases mais formativas de sua carreira, exerceu por quase
+              quatro anos a função de Assessor de Juiz de Direito no Tribunal de
+              Justiça do Maranhão (TJMA). Essa experiência ao lado do Poder
+              Judiciário lhe proporcionou acesso privilegiado à jurisprudência, à
+              técnica decisória e ao entendimento profundo dos critérios que
+              orientam as decisões judiciais.
             </p>
             <p data-reveal-text>
-              Atuou como Assessor e Procurador de Município, função determinante para o
-              desenvolvimento de sua visão institucional e capacidade de interpretação das
-              normas de direito público. Essa passagem pela gestão pública conferiu ao Dr.
-              Merson uma perspectiva estratégica única sobre o funcionamento do Estado e
-              seus instrumentos jurídicos.
+              Atuou ainda por três anos como Procurador Municipal, função
+              determinante para o desenvolvimento de sua visão institucional e
+              capacidade de interpretação das normas de direito público. Essa
+              passagem pela gestão pública conferiu-lhe perspectiva estratégica
+              única sobre o funcionamento do Estado e seus instrumentos jurídicos.
             </p>
             <blockquote data-reveal-text className="border-l-2 border-gold pl-5 italic text-foreground/85">
-              Dr. Merson Borges Tavares de Macedo é o sócio-fundador do escritório Merson
-              Macedo – Advocacia & Consultoria, onde dirige uma equipe comprometida com
-              a entrega de soluções jurídicas de alto impacto. Sob sua liderança, o
-              escritório consolidou-se como referência em atendimento humanizado com
-              resultado.
+              Sócio-proprietário do escritório Merson Macedo Advogados, com sede em
+              Cidade Ocidental/GO, dirige uma equipe comprometida com a entrega de
+              soluções jurídicas de alto impacto, consolidando o escritório como
+              referência em atendimento humanizado com resultado.
             </blockquote>
 
             <div className="flex flex-wrap gap-2 pt-2">

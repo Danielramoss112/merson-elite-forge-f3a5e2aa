@@ -38,7 +38,7 @@ ${form.message}`;
       className="relative py-28 overflow-hidden"
       style={{
         background:
-          "linear-gradient(135deg, #0f0f0f 0%, #14110a 60%, #1a1500 100%)",
+          "linear-gradient(135deg, #0a1426 0%, #0f1a2e 60%, #1a365d 100%)",
       }}
     >
       {/* subtle noise */}
@@ -83,7 +83,7 @@ ${form.message}`;
         <form
           onSubmit={onSubmit}
           className="reveal rounded-3xl p-8 md:p-10 shadow-elegant space-y-5"
-          style={{ background: "#1a1a1a", border: "1px solid #c4953a" }}
+          style={{ background: "#1a1a1a", border: "1px solid #a8b8d0" }}
         >
           <Field label="Nome">
             <input
@@ -145,8 +145,8 @@ ${form.message}`;
             type="submit"
             className="w-full inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
             style={{
-              background: "linear-gradient(135deg, #c4953a, #dbb568)",
-              boxShadow: "0 10px 30px -10px rgba(196,149,58,0.55)",
+              background: "linear-gradient(135deg, #a8b8d0, #cdd6e3)",
+              boxShadow: "0 10px 30px -10px rgba(168,184,208,0.55)",
             }}
           >
             Enviar Mensagem <ArrowRight size={16} />
@@ -178,8 +178,8 @@ ${form.message}`;
         }
         .input-field:focus {
           outline: none;
-          border-color: #c4953a;
-          box-shadow: 0 0 0 3px rgba(196,149,58,0.15);
+          border-color: #a8b8d0;
+          box-shadow: 0 0 0 3px rgba(168,184,208,0.15);
         }
         .input-field option { background: #111; }
       `}</style>
