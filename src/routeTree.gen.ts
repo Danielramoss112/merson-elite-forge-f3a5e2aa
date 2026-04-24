@@ -9,13 +9,25 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as LexRouteImport } from './routes/lex'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiNewsRouteImport } from './routes/api.news'
 
+const ResultadosRoute = ResultadosRouteImport.update({
+  id: '/resultados',
+  path: '/resultados',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LexRoute = LexRouteImport.update({
   id: '/lex',
   path: '/lex',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,41 +43,63 @@ const ApiNewsRoute = ApiNewsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
   '/lex': typeof LexRoute
+  '/resultados': typeof ResultadosRoute
   '/api/news': typeof ApiNewsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
   '/lex': typeof LexRoute
+  '/resultados': typeof ResultadosRoute
   '/api/news': typeof ApiNewsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
   '/lex': typeof LexRoute
+  '/resultados': typeof ResultadosRoute
   '/api/news': typeof ApiNewsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/lex' | '/api/news'
+  fullPaths: '/' | '/blog' | '/lex' | '/resultados' | '/api/news'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/lex' | '/api/news'
-  id: '__root__' | '/' | '/lex' | '/api/news'
+  to: '/' | '/blog' | '/lex' | '/resultados' | '/api/news'
+  id: '__root__' | '/' | '/blog' | '/lex' | '/resultados' | '/api/news'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogRoute: typeof BlogRoute
   LexRoute: typeof LexRoute
+  ResultadosRoute: typeof ResultadosRoute
   ApiNewsRoute: typeof ApiNewsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/resultados': {
+      id: '/resultados'
+      path: '/resultados'
+      fullPath: '/resultados'
+      preLoaderRoute: typeof ResultadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lex': {
       id: '/lex'
       path: '/lex'
       fullPath: '/lex'
       preLoaderRoute: typeof LexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,7 +121,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogRoute: BlogRoute,
   LexRoute: LexRoute,
+  ResultadosRoute: ResultadosRoute,
   ApiNewsRoute: ApiNewsRoute,
 }
 export const routeTree = rootRouteImport
