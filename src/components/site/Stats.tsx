@@ -3,10 +3,9 @@ import { useCountUp } from "@/hooks/use-count-up";
 type Stat = { end: number; prefix?: string; suffix?: string; label: string };
 
 const stats: Stat[] = [
-  { end: 4, suffix: " anos", label: "Assessor de Juiz no TJMA" },
+  { end: 4, suffix: " anos", label: "Assessor de Juiz · TJMA" },
   { end: 3, suffix: " anos", label: "Procurador Municipal" },
-  { end: 7, label: "Áreas de Atuação" },
-  { end: 2, label: "Estados OAB (MA & GO)" },
+  { end: 3, suffix: " anos", label: "Sócio-Proprietário" },
 ];
 
 function StatItem({ end, prefix = "", suffix = "", label }: Stat) {
@@ -28,7 +27,7 @@ function StatItem({ end, prefix = "", suffix = "", label }: Stat) {
 export function Stats() {
   return (
     <section className="relative py-20 border-y border-border bg-ink-soft/40">
-      <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4 gap-y-10">
+      <div className="mx-auto max-w-5xl px-6 grid grid-cols-1 md:grid-cols-3 gap-y-10">
         {stats.map((s) => (
           <StatItem key={s.label} {...s} />
         ))}
