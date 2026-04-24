@@ -1,12 +1,12 @@
 export const SITE = {
-  name: "Merson Macedo Advocacia & Consultoria Estratégica",
-  shortName: "Merson Macedo",
+  name: "Merson Macedo Advogados",
+  shortName: "Merson Macedo Advogados",
   oab: "OAB/MA 15.972 | OAB/GO 69.793-A",
   whatsappNumber: "5561994353905",
   whatsappDisplay: "(61) 99435-3905",
   whatsappUrl: "https://api.whatsapp.com/send?phone=5561994353905",
   email: "adv.mersontavares@gmail.com",
-  address: "SQ 12 Quadra 12 Proj 03 - Loja 28 Sala C, Cidade Ocidental/GO",
+  address: "SQ 12 Quadra 12 Proj 03 - Loja 28 Sala C, Centro, Cidade Ocidental/GO, CEP 72880-490",
 };
 
 import bancarioImg from "@/assets/areas/DIREITO_BANCARIO.webp";

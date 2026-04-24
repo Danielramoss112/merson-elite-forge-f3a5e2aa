@@ -3,8 +3,8 @@ import { useCountUp } from "@/hooks/use-count-up";
 type Stat = { end: number; prefix?: string; suffix?: string; label: string };
 
 const stats: Stat[] = [
-  { end: 10, prefix: "+", label: "Anos de Experiência" },
-  { end: 4, suffix: " anos", label: "Assessor no TJMA" },
+  { end: 4, suffix: " anos", label: "Assessor de Juiz no TJMA" },
+  { end: 3, suffix: " anos", label: "Procurador Municipal" },
   { end: 7, label: "Áreas de Atuação" },
   { end: 2, label: "Estados OAB (MA & GO)" },
 ];

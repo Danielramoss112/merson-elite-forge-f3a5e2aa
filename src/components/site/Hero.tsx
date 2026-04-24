@@ -47,13 +47,13 @@ export function Hero() {
       <div className="relative mx-auto max-w-7xl w-full px-6 grid lg:grid-cols-2 gap-12 items-center">
         <div className="reveal">
           <span className="eyebrow">{SITE.oab}</span>
-          <h1 className="mt-7 font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-[-0.035em]">
-            Justiça com <span className="italic gold-text">Inteligência</span>
-            <br />& <span className="italic gold-text">Estratégia.</span>
+          <h1 className="mt-7 font-serif font-light text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-[-0.02em]">
+            Merson Macedo
+            <br /><span className="italic gold-text">Advogados</span>
           </h1>
           <p className="mt-7 max-w-xl font-body-serif text-[1.18rem] md:text-[1.26rem] text-foreground/78 leading-[1.6]">
-            Ex-Assessor de Juiz com quase 4 anos no TJMA. Transformamos desafios
-            jurídicos complexos em soluções eficazes e personalizadas para sua segurança.
+            Quase 4 anos como Assessor de Juiz e 3 anos como Procurador Municipal.
+            Justiça com inteligência e estratégia para sua segurança jurídica.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
             <a
@@ -102,10 +102,10 @@ export function Hero() {
 
             <div className="absolute -bottom-6 -left-6 md:-left-10 rounded-2xl border border-gold/40 glass px-5 py-3 max-w-[260px] shadow-elegant">
               <div className="text-[10px] uppercase tracking-widest text-gold">
-                Expertise Comprovada
+                Trajetória Sólida
               </div>
               <div className="text-sm text-foreground/90 mt-1">
-                +10 Anos de Magistratura
+                Assessor TJMA · Procurador Municipal
               </div>
             </div>
           </div>

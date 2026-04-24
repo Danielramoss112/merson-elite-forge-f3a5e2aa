@@ -33,8 +33,8 @@ export function Navbar() {
           <span className="flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 bg-ink overflow-hidden">
             <img src={logo} alt="Logo Merson Macedo" className="h-full w-full object-cover" />
           </span>
-          <span className="font-serif text-lg tracking-wide">
-            Merson <span className="italic gold-text">Macedo</span>
+          <span className="font-serif text-lg tracking-wide font-light">
+            Merson Macedo <span className="italic gold-text">Advogados</span>
           </span>
         </a>
 
