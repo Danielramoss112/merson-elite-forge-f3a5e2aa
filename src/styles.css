@@ -43,38 +43,40 @@
 
 :root {
   --radius: 0.75rem;
-  /* Dark luxury theme is default */
-  --background: oklch(0.14 0.012 260);
-  --foreground: oklch(0.97 0.005 260);
-  --ink: oklch(0.10 0.012 260);
-  --ink-soft: oklch(0.18 0.012 260);
-  --card: oklch(0.18 0.012 260);
-  --card-foreground: oklch(0.97 0.005 260);
-  --popover: oklch(0.18 0.012 260);
-  --popover-foreground: oklch(0.97 0.005 260);
-  --primary: oklch(0.78 0.13 82);
-  --primary-foreground: oklch(0.14 0.012 260);
-  --gold: oklch(0.78 0.13 82);
-  --gold-soft: oklch(0.86 0.10 85);
-  --gold-deep: oklch(0.62 0.13 75);
-  --secondary: oklch(0.24 0.012 260);
-  --secondary-foreground: oklch(0.97 0.005 260);
-  --muted: oklch(0.22 0.012 260);
-  --muted-foreground: oklch(0.70 0.012 260);
-  --accent: oklch(0.78 0.13 82);
-  --accent-foreground: oklch(0.14 0.012 260);
+  /* Premium Navy & Silver — Merson Macedo Advogados */
+  /* Navy Deep #00234E ≈ oklch(0.24 0.09 260) | Slate Blue #1A365D ≈ oklch(0.32 0.07 256) */
+  --background: oklch(0.18 0.05 258);
+  --foreground: oklch(0.97 0.008 250);
+  --ink: oklch(0.14 0.06 260);
+  --ink-soft: oklch(0.22 0.07 258);
+  --card: oklch(0.24 0.06 258);
+  --card-foreground: oklch(0.97 0.008 250);
+  --popover: oklch(0.22 0.06 258);
+  --popover-foreground: oklch(0.97 0.008 250);
+  /* Silver / Cool gray as the accent */
+  --primary: oklch(0.86 0.012 250);
+  --primary-foreground: oklch(0.16 0.06 260);
+  --gold: oklch(0.86 0.012 250);        /* Silver */
+  --gold-soft: oklch(0.92 0.008 250);   /* Bright silver */
+  --gold-deep: oklch(0.70 0.015 250);   /* Cool gray */
+  --secondary: oklch(0.30 0.06 258);
+  --secondary-foreground: oklch(0.97 0.008 250);
+  --muted: oklch(0.28 0.05 258);
+  --muted-foreground: oklch(0.74 0.015 250);
+  --accent: oklch(0.86 0.012 250);
+  --accent-foreground: oklch(0.16 0.06 260);
   --destructive: oklch(0.62 0.22 25);
   --destructive-foreground: oklch(0.98 0.005 260);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.78 0.13 82);
+  --border: oklch(0.86 0.012 250 / 12%);
+  --input: oklch(0.86 0.012 250 / 14%);
+  --ring: oklch(0.86 0.012 250);
   --whatsapp: oklch(0.68 0.18 145);
 
-  --gradient-gold: linear-gradient(135deg, oklch(0.86 0.10 85), oklch(0.70 0.14 78));
-  --gradient-dark: linear-gradient(180deg, oklch(0.10 0.012 260), oklch(0.16 0.012 260));
-  --gradient-radial-gold: radial-gradient(circle at 30% 30%, oklch(0.78 0.13 82 / 0.20), transparent 60%);
-  --shadow-gold: 0 10px 40px -10px oklch(0.78 0.13 82 / 0.35);
-  --shadow-elegant: 0 20px 60px -20px oklch(0 0 0 / 0.6);
+  --gradient-gold: linear-gradient(135deg, oklch(0.92 0.008 250), oklch(0.74 0.015 250));
+  --gradient-dark: linear-gradient(180deg, oklch(0.14 0.06 260), oklch(0.22 0.07 258));
+  --gradient-radial-gold: radial-gradient(circle at 30% 30%, oklch(0.86 0.012 250 / 0.14), transparent 60%);
+  --shadow-gold: 0 10px 40px -10px oklch(0.86 0.012 250 / 0.30);
+  --shadow-elegant: 0 20px 60px -20px oklch(0.05 0.04 260 / 0.7);
   --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -110,7 +112,7 @@
     text-wrap: pretty;
   }
   ::selection {
-    background: oklch(0.78 0.13 82 / 0.30);
+    background: oklch(0.86 0.012 250 / 0.28);
     color: var(--color-foreground);
   }
   :focus-visible {
