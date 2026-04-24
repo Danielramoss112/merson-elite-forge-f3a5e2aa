@@ -5,10 +5,11 @@ import logo from "@/assets/logo.webp";
 import { SITE } from "@/lib/site";
 
 const links = [
-  { href: "#areas", label: "Áreas de Atuação" },
-  { href: "#sobre", label: "O Doutor" },
-  { href: "#depoimentos", label: "Depoimentos" },
-  { href: "#contato", label: "Contato" },
+  { href: "/#areas", label: "Áreas de Atuação" },
+  { href: "/#sobre", label: "O Doutor" },
+  { href: "/resultados", label: "Resultados", route: true },
+  { href: "/blog", label: "Blog", route: true },
+  { href: "/#contato", label: "Contato" },
 ];
 
 export function Navbar() {
