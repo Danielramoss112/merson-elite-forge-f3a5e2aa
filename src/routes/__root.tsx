@@ -36,7 +36,7 @@ export const Route = createRootRoute({
           "Escritório Merson Macedo Advogados — atuação estratégica em Direito Bancário, Previdenciário, Civil, Família e Criminal. OAB/MA 15.972 · OAB/GO 69.793-A · Cidade Ocidental/GO.",
       },
       { name: "author", content: "Merson Macedo Advogados" },
-      { name: "theme-color", content: "#00234E" },
+      { name: "theme-color", content: "#001219" },
       { property: "og:title", content: "Merson Macedo Advogados | Advocacia & Consultoria Estratégica" },
       {
         property: "og:description",
@@ -52,7 +52,7 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap",
       },
     ],
   }),
