@@ -98,6 +98,7 @@ function ResultadosPage() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <ScrollProgress />
+      <CustomCursor />
       <Navbar />
 
       <section className="relative pt-36 pb-20">
