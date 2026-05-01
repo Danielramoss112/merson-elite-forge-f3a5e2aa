@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { CustomCursor } from "@/components/site/CustomCursor";
+import { MobileTabBar } from "@/components/site/MobileTabBar";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
 
 export const Route = createFileRoute("/blog")({
@@ -62,6 +64,7 @@ function BlogPage() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <ScrollProgress />
+      <CustomCursor />
       <Navbar />
 
       <section className="relative pt-36 pb-16">
@@ -131,6 +134,7 @@ function BlogPage() {
       </section>
 
       <Footer />
+      <MobileTabBar />
     </main>
   );
 }

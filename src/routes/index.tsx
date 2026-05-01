@@ -36,6 +36,9 @@ const LexChat = lazy(() =>
 const QuickConsult = lazy(() =>
   import("@/components/site/QuickConsult").then((m) => ({ default: m.QuickConsult }))
 );
+const MobileTabBar = lazy(() =>
+  import("@/components/site/MobileTabBar").then((m) => ({ default: m.MobileTabBar }))
+);
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -107,6 +110,7 @@ function Index() {
         <ResponseBadge hidden={quickOpen} />
         <QuickConsult onVisibilityChange={setQuickOpen} />
         <LexChat />
+        <MobileTabBar />
       </Suspense>
     </main>
   );

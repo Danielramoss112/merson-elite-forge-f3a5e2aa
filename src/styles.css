@@ -36,48 +36,69 @@
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-whatsapp: var(--whatsapp);
-  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --font-body: "Crimson Pro", "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-body: "Cormorant Garamond", "Crimson Pro", Georgia, serif;
+  --font-sans: "Inter", "SF Pro Display", system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.75rem;
-  /* Premium Navy & Silver — Merson Macedo Advogados */
-  /* Navy Deep #00234E ≈ oklch(0.24 0.09 260) | Slate Blue #1A365D ≈ oklch(0.32 0.07 256) */
-  --background: oklch(0.18 0.05 258);
-  --foreground: oklch(0.97 0.008 250);
-  --ink: oklch(0.14 0.06 260);
-  --ink-soft: oklch(0.22 0.07 258);
-  --card: oklch(0.24 0.06 258);
-  --card-foreground: oklch(0.97 0.008 250);
-  --popover: oklch(0.22 0.06 258);
-  --popover-foreground: oklch(0.97 0.008 250);
-  /* Silver / Cool gray as the accent */
-  --primary: oklch(0.86 0.012 250);
-  --primary-foreground: oklch(0.16 0.06 260);
-  --gold: oklch(0.86 0.012 250);        /* Silver */
-  --gold-soft: oklch(0.92 0.008 250);   /* Bright silver */
-  --gold-deep: oklch(0.70 0.015 250);   /* Cool gray */
-  --secondary: oklch(0.30 0.06 258);
-  --secondary-foreground: oklch(0.97 0.008 250);
-  --muted: oklch(0.28 0.05 258);
-  --muted-foreground: oklch(0.74 0.015 250);
-  --accent: oklch(0.86 0.012 250);
-  --accent-foreground: oklch(0.16 0.06 260);
+  --radius: 0.875rem;
+  /* Midnight Luxury — Merson Macedo Advogados */
+  /* Midnight Navy #001219 ≈ oklch(0.16 0.04 230) | Deep Black #080808 ≈ oklch(0.10 0 0) */
+  --background: oklch(0.13 0.03 235);
+  --foreground: oklch(0.97 0.005 250);   /* Ivory White #F5F5F7 */
+  --ink: oklch(0.10 0.02 235);
+  --ink-soft: oklch(0.18 0.04 235);
+  --card: oklch(0.17 0.035 235);
+  --card-foreground: oklch(0.97 0.005 250);
+  --popover: oklch(0.16 0.035 235);
+  --popover-foreground: oklch(0.97 0.005 250);
+  /* Silver primary + Champagne Gold accent (subtle) */
+  --primary: oklch(0.88 0.010 250);                /* Silver */
+  --primary-foreground: oklch(0.12 0.03 235);
+  --gold: oklch(0.78 0.105 86);                    /* Champagne Gold #D4AF37 */
+  --gold-soft: oklch(0.86 0.085 88);
+  --gold-deep: oklch(0.66 0.110 84);
+  --silver: oklch(0.88 0.010 250);
+  --silver-soft: oklch(0.94 0.006 250);
+  --secondary: oklch(0.24 0.04 235);
+  --secondary-foreground: oklch(0.97 0.005 250);
+  --muted: oklch(0.22 0.035 235);
+  --muted-foreground: oklch(0.74 0.012 250);
+  --accent: oklch(0.78 0.105 86);
+  --accent-foreground: oklch(0.12 0.03 235);
   --destructive: oklch(0.62 0.22 25);
   --destructive-foreground: oklch(0.98 0.005 260);
-  --border: oklch(0.86 0.012 250 / 12%);
-  --input: oklch(0.86 0.012 250 / 14%);
-  --ring: oklch(0.86 0.012 250);
+  --border: oklch(0.88 0.010 250 / 10%);
+  --input: oklch(0.88 0.010 250 / 14%);
+  --ring: oklch(0.78 0.105 86);
   --whatsapp: oklch(0.68 0.18 145);
 
-  --gradient-gold: linear-gradient(135deg, oklch(0.92 0.008 250), oklch(0.74 0.015 250));
-  --gradient-dark: linear-gradient(180deg, oklch(0.14 0.06 260), oklch(0.22 0.07 258));
-  --gradient-radial-gold: radial-gradient(circle at 30% 30%, oklch(0.86 0.012 250 / 0.14), transparent 60%);
-  --shadow-gold: 0 10px 40px -10px oklch(0.86 0.012 250 / 0.30);
-  --shadow-elegant: 0 20px 60px -20px oklch(0.05 0.04 260 / 0.7);
+  /* Gradient = silver primary with champagne kiss */
+  --gradient-gold: linear-gradient(135deg, oklch(0.94 0.006 250) 0%, oklch(0.82 0.05 88) 60%, oklch(0.70 0.110 84) 100%);
+  --gradient-silver: linear-gradient(135deg, oklch(0.96 0.006 250), oklch(0.78 0.012 250));
+  --gradient-dark: linear-gradient(180deg, oklch(0.10 0.02 235), oklch(0.18 0.04 235));
+  --gradient-radial-gold: radial-gradient(ellipse at 50% 0%, oklch(0.20 0.05 235 / 0.85) 0%, oklch(0.10 0.02 235 / 0.95) 55%, oklch(0.06 0.01 235) 100%);
+  --shadow-gold: 0 10px 40px -10px oklch(0.78 0.105 86 / 0.30);
+  --shadow-elegant: 0 30px 80px -30px oklch(0 0 0 / 0.85);
   --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global radial midnight backdrop */
+html, body {
+  background-color: var(--background);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.22 0.06 235 / 0.55), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, oklch(0.18 0.05 235 / 0.45), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 0% 100%, oklch(0.16 0.04 235 / 0.40), transparent 55%),
+    linear-gradient(180deg, oklch(0.13 0.03 235) 0%, oklch(0.08 0.015 235) 100%);
 }
 
 @layer base {
@@ -100,13 +121,13 @@
   }
   h1, h2, h3, h4, h5 {
     font-family: var(--font-serif);
-    letter-spacing: -0.025em;
-    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "swsh" 1, "salt" 1;
-    font-weight: 500;
+    letter-spacing: -0.02em;
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
+    font-weight: 600;
     text-wrap: balance;
   }
-  h1 { letter-spacing: -0.035em; line-height: 1.02; }
-  h2 { letter-spacing: -0.028em; line-height: 1.08; }
+  h1 { letter-spacing: -0.03em; line-height: 1.02; font-weight: 700; }
+  h2 { letter-spacing: -0.025em; line-height: 1.08; font-weight: 600; }
   p {
     line-height: 1.65;
     text-wrap: pretty;
@@ -166,9 +187,44 @@ html.cursor-none-mode * {
     transform: translateY(0);
   }
   .glass {
-    background: oklch(0.14 0.012 260 / 0.75);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: linear-gradient(135deg, oklch(0.20 0.04 235 / 0.55), oklch(0.12 0.025 235 / 0.65));
+    backdrop-filter: blur(20px) saturate(1.1);
+    -webkit-backdrop-filter: blur(20px) saturate(1.1);
+    border: 1px solid oklch(0.88 0.010 250 / 0.10);
+  }
+  .glass-card {
+    position: relative;
+    background: linear-gradient(135deg, oklch(0.22 0.045 235 / 0.55) 0%, oklch(0.12 0.025 235 / 0.70) 100%);
+    backdrop-filter: blur(22px) saturate(1.15);
+    -webkit-backdrop-filter: blur(22px) saturate(1.15);
+    border: 1px solid oklch(0.88 0.010 250 / 0.10);
+    box-shadow:
+      inset 0 1px 0 oklch(0.95 0.008 250 / 0.06),
+      0 30px 60px -30px oklch(0 0 0 / 0.6);
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease;
+  }
+  .glass-card:hover {
+    border-color: oklch(0.78 0.105 86 / 0.40);
+    box-shadow:
+      inset 0 1px 0 oklch(0.95 0.008 250 / 0.10),
+      0 0 0 1px oklch(0.78 0.105 86 / 0.18),
+      0 30px 70px -25px oklch(0.78 0.105 86 / 0.18),
+      0 30px 60px -30px oklch(0 0 0 / 0.7);
+    transform: translateY(-3px);
+  }
+  .text-silver { color: var(--silver); }
+  .gradient-silver { background: var(--gradient-silver); }
+  .silver-text {
+    background: linear-gradient(180deg, #ffffff 0%, #d8dee9 55%, #8a98b3 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .champagne-text {
+    background: linear-gradient(135deg, #f5e6b3 0%, #d4af37 55%, #a8862a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   /* Eyebrow tag — uppercase pill with refined letter spacing */
