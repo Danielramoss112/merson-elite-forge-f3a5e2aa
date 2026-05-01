@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as LexRouteImport } from './routes/lex'
+import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as EscritorioRouteImport } from './routes/escritorio'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiNewsRouteImport } from './routes/api.news'
@@ -23,6 +25,16 @@ const ResultadosRoute = ResultadosRouteImport.update({
 const LexRoute = LexRouteImport.update({
   id: '/lex',
   path: '/lex',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EscritorioRoute = EscritorioRouteImport.update({
+  id: '/escritorio',
+  path: '/escritorio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -44,6 +56,8 @@ const ApiNewsRoute = ApiNewsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/escritorio': typeof EscritorioRoute
+  '/insights': typeof InsightsRoute
   '/lex': typeof LexRoute
   '/resultados': typeof ResultadosRoute
   '/api/news': typeof ApiNewsRoute
@@ -51,6 +65,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/escritorio': typeof EscritorioRoute
+  '/insights': typeof InsightsRoute
   '/lex': typeof LexRoute
   '/resultados': typeof ResultadosRoute
   '/api/news': typeof ApiNewsRoute
@@ -59,21 +75,47 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/escritorio': typeof EscritorioRoute
+  '/insights': typeof InsightsRoute
   '/lex': typeof LexRoute
   '/resultados': typeof ResultadosRoute
   '/api/news': typeof ApiNewsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog' | '/lex' | '/resultados' | '/api/news'
+  fullPaths:
+    | '/'
+    | '/blog'
+    | '/escritorio'
+    | '/insights'
+    | '/lex'
+    | '/resultados'
+    | '/api/news'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/lex' | '/resultados' | '/api/news'
-  id: '__root__' | '/' | '/blog' | '/lex' | '/resultados' | '/api/news'
+  to:
+    | '/'
+    | '/blog'
+    | '/escritorio'
+    | '/insights'
+    | '/lex'
+    | '/resultados'
+    | '/api/news'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog'
+    | '/escritorio'
+    | '/insights'
+    | '/lex'
+    | '/resultados'
+    | '/api/news'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRoute
+  EscritorioRoute: typeof EscritorioRoute
+  InsightsRoute: typeof InsightsRoute
   LexRoute: typeof LexRoute
   ResultadosRoute: typeof ResultadosRoute
   ApiNewsRoute: typeof ApiNewsRoute
@@ -93,6 +135,20 @@ declare module '@tanstack/react-router' {
       path: '/lex'
       fullPath: '/lex'
       preLoaderRoute: typeof LexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/escritorio': {
+      id: '/escritorio'
+      path: '/escritorio'
+      fullPath: '/escritorio'
+      preLoaderRoute: typeof EscritorioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -122,6 +178,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
+  EscritorioRoute: EscritorioRoute,
+  InsightsRoute: InsightsRoute,
   LexRoute: LexRoute,
   ResultadosRoute: ResultadosRoute,
   ApiNewsRoute: ApiNewsRoute,
