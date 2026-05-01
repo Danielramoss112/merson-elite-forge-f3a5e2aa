@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { CustomCursor } from "@/components/site/CustomCursor";
+import { MobileTabBar } from "@/components/site/MobileTabBar";
 import { CheckCircle2, ArrowLeft } from "lucide-react";
 import { SITE } from "@/lib/site";
 
@@ -163,6 +165,7 @@ function ResultadosPage() {
       </section>
 
       <Footer />
+      <MobileTabBar />
     </main>
   );
 }
