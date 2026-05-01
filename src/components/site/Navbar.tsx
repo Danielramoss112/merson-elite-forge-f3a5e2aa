@@ -5,10 +5,10 @@ import logo from "@/assets/logo.webp";
 import { SITE } from "@/lib/site";
 
 const links = [
-  { href: "/#areas", label: "Áreas de Atuação" },
-  { href: "/#sobre", label: "O Doutor" },
+  { href: "/#areas", label: "Expertise" },
+  { href: "/escritorio", label: "O Escritório", route: true },
   { href: "/resultados", label: "Resultados", route: true },
-  { href: "/blog", label: "Blog", route: true },
+  { href: "/blog", label: "Insights", route: true },
   { href: "/#contato", label: "Contato" },
 ];
 
@@ -30,25 +30,36 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-        <a href="#top" className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 bg-ink overflow-hidden">
             <img src={logo} alt="Logo Merson Macedo" className="h-full w-full object-cover" />
           </span>
           <span className="font-serif text-lg tracking-wide font-light">
-            Merson Macedo <span className="italic gold-text">Advogados</span>
+            Merson Macedo <span className="italic champagne-text">Advogados</span>
           </span>
         </a>
 
         <nav className="hidden lg:flex items-center gap-8">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="nav-link text-sm text-foreground/80 hover:text-gold transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.route ? (
+              <Link
+                key={l.href}
+                to={l.href as "/escritorio"}
+                className="nav-link text-sm text-foreground/80 hover:text-gold transition-colors"
+                activeProps={{ className: "nav-link text-sm text-gold" }}
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href}
+                className="nav-link text-sm text-foreground/80 hover:text-gold transition-colors"
+              >
+                {l.label}
+              </a>
+            )
+          )}
           <Link
             to="/lex"
             className="nav-link inline-flex items-center gap-1.5 text-sm text-gold hover:opacity-90 transition-opacity"
@@ -61,9 +72,10 @@ export function Navbar() {
           href={SITE.whatsappUrl}
           target="_blank"
           rel="noreferrer"
+          data-magnetic
           className="btn-gold hidden lg:inline-flex items-center rounded-full border border-gold/60 px-5 py-2 text-sm text-gold hover:bg-gold hover:text-primary-foreground"
         >
-          Consulta Gratuita
+          Consulta Estratégica
         </a>
 
         <button
@@ -77,16 +89,27 @@ export function Navbar() {
 
       {open && (
         <div className="lg:hidden glass border-t border-border px-6 py-6 flex flex-col gap-4">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="text-foreground/85 hover:text-gold"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.route ? (
+              <Link
+                key={l.href}
+                to={l.href as "/escritorio"}
+                onClick={() => setOpen(false)}
+                className="text-foreground/85 hover:text-gold"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="text-foreground/85 hover:text-gold"
+              >
+                {l.label}
+              </a>
+            )
+          )}
           <Link
             to="/lex"
             onClick={() => setOpen(false)}
@@ -100,7 +123,7 @@ export function Navbar() {
             rel="noreferrer"
             className="mt-2 inline-flex justify-center rounded-full border border-gold px-5 py-2.5 text-gold"
           >
-            Consulta Gratuita
+            Consulta Estratégica
           </a>
         </div>
       )}
