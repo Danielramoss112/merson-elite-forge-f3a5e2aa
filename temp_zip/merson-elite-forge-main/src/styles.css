@@ -1,0 +1,393 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-deep: var(--gold-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-whatsapp: var(--whatsapp);
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-body: "Crimson Pro", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+  /* Premium Navy & Silver — Merson Macedo Advogados */
+  /* Navy Deep #00234E ≈ oklch(0.24 0.09 260) | Slate Blue #1A365D ≈ oklch(0.32 0.07 256) */
+  --background: oklch(0.18 0.05 258);
+  --foreground: oklch(0.97 0.008 250);
+  --ink: oklch(0.14 0.06 260);
+  --ink-soft: oklch(0.22 0.07 258);
+  --card: oklch(0.24 0.06 258);
+  --card-foreground: oklch(0.97 0.008 250);
+  --popover: oklch(0.22 0.06 258);
+  --popover-foreground: oklch(0.97 0.008 250);
+  /* Silver / Cool gray as the accent */
+  --primary: oklch(0.86 0.012 250);
+  --primary-foreground: oklch(0.16 0.06 260);
+  --gold: oklch(0.86 0.012 250);        /* Silver */
+  --gold-soft: oklch(0.92 0.008 250);   /* Bright silver */
+  --gold-deep: oklch(0.70 0.015 250);   /* Cool gray */
+  --secondary: oklch(0.30 0.06 258);
+  --secondary-foreground: oklch(0.97 0.008 250);
+  --muted: oklch(0.28 0.05 258);
+  --muted-foreground: oklch(0.74 0.015 250);
+  --accent: oklch(0.86 0.012 250);
+  --accent-foreground: oklch(0.16 0.06 260);
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.98 0.005 260);
+  --border: oklch(0.86 0.012 250 / 12%);
+  --input: oklch(0.86 0.012 250 / 14%);
+  --ring: oklch(0.86 0.012 250);
+  --whatsapp: oklch(0.68 0.18 145);
+
+  --gradient-gold: linear-gradient(135deg, oklch(0.92 0.008 250), oklch(0.74 0.015 250));
+  --gradient-dark: linear-gradient(180deg, oklch(0.14 0.06 260), oklch(0.22 0.07 258));
+  --gradient-radial-gold: radial-gradient(circle at 30% 30%, oklch(0.86 0.012 250 / 0.14), transparent 60%);
+  --shadow-gold: 0 10px 40px -10px oklch(0.86 0.012 250 / 0.30);
+  --shadow-elegant: 0 20px 60px -20px oklch(0.05 0.04 260 / 0.7);
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "ss01" 1;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.025em;
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "swsh" 1, "salt" 1;
+    font-weight: 500;
+    text-wrap: balance;
+  }
+  h1 { letter-spacing: -0.035em; line-height: 1.02; }
+  h2 { letter-spacing: -0.028em; line-height: 1.08; }
+  p {
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: oklch(0.86 0.012 250 / 0.28);
+    color: var(--color-foreground);
+  }
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  /* Premium serif body utility */
+  .font-body-serif {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+    letter-spacing: 0.005em;
+  }
+}
+
+html.cursor-none-mode,
+html.cursor-none-mode * {
+  cursor: none !important;
+}
+
+@keyframes lexDot {
+  0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-3px); }
+}
+
+@layer utilities {
+  .font-serif { font-family: var(--font-serif); }
+  .text-gold { color: var(--gold); }
+  .bg-gold { background-color: var(--gold); }
+  .border-gold { border-color: var(--gold); }
+  .gradient-gold { background: var(--gradient-gold); }
+  .gradient-dark { background: var(--gradient-dark); }
+  .shadow-gold { box-shadow: var(--shadow-gold); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .gold-text {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .deco-circle { display: none; }
+  .deco-dot { display: none; }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .glass {
+    background: oklch(0.14 0.012 260 / 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  /* Eyebrow tag — uppercase pill with refined letter spacing */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.95rem;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in oklch, var(--gold) 35%, transparent);
+    background: color-mix(in oklch, var(--gold) 5%, transparent);
+    color: var(--gold);
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 9999px;
+    background: var(--gold);
+    box-shadow: 0 0 8px color-mix(in oklch, var(--gold) 60%, transparent);
+  }
+
+  /* Ornamental gold divider — diamond between two lines */
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.875rem;
+    margin: 1rem auto 0;
+  }
+  .ornament::before,
+  .ornament::after {
+    content: "";
+    height: 1px;
+    width: 56px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklch, var(--gold) 60%, transparent),
+      transparent
+    );
+  }
+  .ornament-diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    box-shadow: 0 0 12px color-mix(in oklch, var(--gold) 50%, transparent);
+  }
+
+  /* Animated gold underline for nav links */
+  .nav-link {
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .nav-link:hover::after,
+  .nav-link[data-active="true"]::after {
+    transform: scaleX(1);
+  }
+
+  /* Premium button polish — subtle gold shimmer + smooth lift */
+  .btn-gold {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-gold::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.18) 50%,
+      transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.9s ease;
+  }
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -12px color-mix(in oklch, var(--gold) 40%, transparent);
+  }
+  .btn-gold:hover::before { transform: translateX(100%); }
+  .btn-gold:active { transform: translateY(0); }
+
+  /* Vertical separator between stat items */
+  .stat-separator {
+    position: relative;
+  }
+  .stat-separator + .stat-separator::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 18%;
+    bottom: 18%;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      color-mix(in oklch, var(--gold) 30%, transparent),
+      transparent
+    );
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.live-dot { animation: pulse-dot 1.5s ease-in-out infinite; }
+
+@keyframes faq-slide {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.faq-answer { animation: faq-slide 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* Premium card — subtle gold edge glow on hover */
+.card-premium {
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+.card-premium::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--gold) 55%, transparent),
+    transparent 40%,
+    color-mix(in oklch, var(--gold) 25%, transparent) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.card-premium:hover::after { opacity: 1; }
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 60px -24px oklch(0 0 0 / 0.55),
+    0 0 0 1px color-mix(in oklch, var(--gold) 25%, transparent);
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 100;
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--gold) 40%, transparent),
+    var(--gold),
+    color-mix(in oklch, var(--gold) 40%, transparent)
+  );
+  transform-origin: left center;
+  transform: scaleX(var(--scroll, 0));
+  transition: transform 0.1s linear;
+  box-shadow: 0 0 12px color-mix(in oklch, var(--gold) 50%, transparent);
+}
+
+/* Section divider — refined horizontal gold line with sparkle */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 200px;
+}
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--gold) 50%, transparent)
+  );
+}
+.section-divider::after {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--gold) 50%, transparent),
+    transparent
+  );
+}
+
+html { scroll-padding-top: 80px; }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
