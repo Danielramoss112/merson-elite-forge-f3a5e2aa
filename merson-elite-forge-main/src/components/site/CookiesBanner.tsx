@@ -139,19 +139,21 @@ export function CookiesBanner() {
             bottom: 5.5rem; /* Elevate to clear MobileStickyBar */
           }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
           .cookies-banner {
             width: calc(100% - 1.5rem);
-            bottom: 6rem;
+            bottom: 6.5rem;
           }
           .cookies-banner__inner {
-            flex-wrap: wrap;
-            padding: 1rem;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1.25rem;
+            gap: 0.75rem;
           }
           .cookies-banner__btn {
             width: 100%;
             text-align: center;
-            padding: 0.6rem;
+            padding: 0.75rem;
           }
         }
       `}</style>
