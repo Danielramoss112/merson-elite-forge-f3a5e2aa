@@ -38,8 +38,9 @@ export function CookiesBanner() {
       className="cookies-banner"
       style={{
         opacity: hiding ? 0 : 1,
-        transform: hiding ? "translateY(20px)" : "translateY(0)",
+        transform: hiding ? "translateX(-50%) translateY(20px)" : "translateX(-50%) translateY(0)",
         transition: "opacity 0.5s ease, transform 0.5s ease",
+        zIndex: 99999,
       }}
     >
       <div className="cookies-banner__inner">

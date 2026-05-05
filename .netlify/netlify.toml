@@ -1,0 +1,28 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\danie\\merson-elite-forge-f3a5e2aa\\merson-elite-forge-main\\dist\\client"
+publishOrigin = "ui"
+commandOrigin = "ui"
+base = "C:\\Users\\danie\\merson-elite-forge-f3a5e2aa\\merson-elite-forge-main"
+command = "npm run build"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
