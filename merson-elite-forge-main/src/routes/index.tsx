@@ -14,12 +14,14 @@ const Process = lazy(() => import("@/components/site/Process").then((m) => ({ de
 const Differentiation = lazy(() => import("@/components/site/Differentiation").then((m) => ({ default: m.Differentiation })));
 const FinalCta = lazy(() => import("@/components/site/FinalCta").then((m) => ({ default: m.FinalCta })));
 const About = lazy(() => import("@/components/site/About").then((m) => ({ default: m.About })));
+const GoogleReviews = lazy(() => import("@/components/site/GoogleReviews").then((m) => ({ default: m.GoogleReviews })));
 const Faq = lazy(() => import("@/components/site/Faq").then((m) => ({ default: m.Faq })));
 const Contact = lazy(() => import("@/components/site/Contact").then((m) => ({ default: m.Contact })));
 const Location = lazy(() => import("@/components/site/Location").then((m) => ({ default: m.Location })));
 const Footer = lazy(() => import("@/components/site/Footer").then((m) => ({ default: m.Footer })));
 const WhatsAppFloat = lazy(() => import("@/components/site/WhatsAppFloat").then((m) => ({ default: m.WhatsAppFloat })));
 const MobileStickyBar = lazy(() => import("@/components/site/MobileStickyBar").then((m) => ({ default: m.MobileStickyBar })));
+const CookiesBanner = lazy(() => import("@/components/site/CookiesBanner").then((m) => ({ default: m.CookiesBanner })));
 
 export const Route = createFileRoute("/")(  {
   head: () => ({
@@ -69,12 +71,14 @@ function Index() {
         <About />
         <Differentiation />
         <FinalCta />
+        <GoogleReviews />
         <Faq />
         <Contact />
         <Location />
         <Footer />
         <WhatsAppFloat />
         <MobileStickyBar />
+        <CookiesBanner />
       </Suspense>
     </main>
   );

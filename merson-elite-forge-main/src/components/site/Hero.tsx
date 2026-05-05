@@ -15,8 +15,8 @@ export function Hero() {
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const rotateX = (y - centerY) / 25;
-    const rotateY = (centerX - x) / 25;
+    const rotateX = (y - centerY) / 30;
+    const rotateY = (centerX - x) / 30;
     card.style.transform = `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
   };
 
@@ -27,12 +27,13 @@ export function Hero() {
 
   return (
     <section id="top" className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-[#040811]">
-      {/* NEW INSTITUTIONAL MM BACKGROUND */}
+      {/* Institutional Background */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={institutionalBg} 
-          alt="Institucional MM" 
-          className="w-full h-full object-cover opacity-30"
+        <img
+          src={institutionalBg}
+          alt=""
+          aria-hidden
+          className="w-full h-full object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#040811] via-transparent to-[#040811]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#040811] via-[#040811]/60 to-transparent" />
@@ -40,28 +41,27 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-          {/* Left Content (Text) */}
+
+          {/* Left Content */}
           <div className="reveal">
             <div className="flex items-center gap-3 mb-8">
               <div className="h-[1px] w-12 bg-silver/30" />
               <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.4em] text-silver/60 font-medium">
-                Advocacia Estratégica & Consultoria de Elite
+                A Elite da Advocacia Estratégica
               </span>
             </div>
 
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-tight">
-              Excelência <br />
-              Jurídica de <br />
-              <span className="italic silver-text">Alto Impacto</span>
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-[-0.02em]">
+              Sua Defesa <br />
+              com Precisão <br />
+              <span className="italic silver-text">Cirúrgica</span>
             </h1>
 
-            <p className="mt-10 text-[1.1rem] sm:text-[1.25rem] text-foreground/50 leading-relaxed max-w-xl font-light">
-              Atuação técnica de excelência em causas de alta complexidade. 
-              Soluções personalizadas com foco em resultados reais e segurança jurídica.
+            <p className="mt-10 text-[1.1rem] sm:text-[1.2rem] text-foreground/50 leading-[1.6] max-w-xl font-light">
+              Nenhuma decisão é por acaso. Atuamos com a visão e o rigor técnico de quem esteve do outro lado da mesa (TJMA). Soluções de alta complexidade desenhadas para proteger seu patrimônio e sua liberdade.
             </p>
 
-            <div className="mt-12 flex flex-col sm:flex-row gap-6">
+            <div className="mt-12 flex flex-col sm:flex-row gap-5">
               <a
                 href={SITE.whatsappUrl}
                 target="_blank"
@@ -92,42 +92,51 @@ export function Hero() {
             </div>
           </div>
 
-          {/* RIGHT CONTENT: THE 3D TILT PORTRAIT */}
+          {/* RIGHT: Portrait with gradient mask blending into dark bg */}
           <div className="relative reveal flex justify-center lg:justify-end">
-             {/* Ambient Aura Glow behind the portrait */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-silver/5 blur-[120px] rounded-full pointer-events-none opacity-40" />
-            
-            <div 
+            {/* Ambient midnight blue glow — NOT warm */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] rounded-full pointer-events-none opacity-40"
+              style={{ background: "radial-gradient(circle, rgba(10,20,46,0.8) 0%, transparent 70%)" }}
+            />
+
+            <div
               ref={cardRef}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className="relative z-10 p-[1px] rounded-[3.5rem] bg-gradient-to-br from-white/20 via-transparent to-white/10 shadow-elegant overflow-hidden transition-all duration-700 ease-out animate-float-slow"
-              style={{ width: 'fit-content' }}
+              className="relative z-10 transition-all duration-700 ease-out"
+              style={{ width: "fit-content" }}
             >
-              <div className="relative rounded-[calc(3.5rem-1px)] overflow-hidden bg-ink">
+              {/* Portrait with CSS mask to blend bottom into dark background */}
+              <div className="relative" style={{ maxWidth: "520px" }}>
                 <img
                   src={mersonPortrait}
-                  alt="Dr. Merson Macedo"
-                  className="w-full max-w-[500px] h-auto object-cover filter contrast-[1.05]"
+                  alt="Dr. Merson Macedo — Advocacia Estratégica"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full h-auto object-cover object-top"
+                  style={{
+                    maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+                    WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+                    filter: "contrast(1.05) brightness(0.95)",
+                  }}
                 />
-                
-                {/* INTERACTIVE HOTSPOTS OVER IMAGE BUTTONS */}
-                <a 
-                  href="#depoimentos" 
-                  className="absolute top-[25%] left-[5%] w-[45%] h-[15%] z-20 cursor-pointer group"
-                  aria-label="Conquistas"
-                >
-                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-colors duration-500 rounded-2xl" />
-                </a>
-
-                <a 
-                  href="#sobre" 
-                  className="absolute top-[25%] right-[5%] w-[35%] h-[15%] z-20 cursor-pointer group"
-                  aria-label="História"
-                >
-                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-colors duration-500 rounded-2xl" />
-                </a>
               </div>
+
+              {/* Hotspot overlays */}
+              <a
+                href="#depoimentos"
+                className="absolute top-[28%] left-[5%] w-[40%] h-[12%] z-20 cursor-pointer group"
+                aria-label="Principais Conquistas"
+              >
+                <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-colors duration-500 rounded-2xl" />
+              </a>
+              <a
+                href="#sobre"
+                className="absolute top-[28%] right-[5%] w-[32%] h-[12%] z-20 cursor-pointer group"
+                aria-label="História"
+              >
+                <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-colors duration-500 rounded-2xl" />
+              </a>
             </div>
           </div>
 

@@ -95,6 +95,7 @@
 
   body {
     background-color: var(--background);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
     color: var(--foreground);
     font-family: var(--font-sans);
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
@@ -424,3 +425,69 @@
   border-radius: 1px;
 }
 @keyframes lexCaret { 50% { opacity: 0; } }
+
+/* ── CSS Parallax Section Dividers ── */
+/* Uses pure CSS transform3d — zero JS, 60fps on GPU compositing layer */
+.parallax-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.parallax-section::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(-1px) scale(2);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Parallax-style fade transition between sections */
+.section-fade-parallax {
+  position: relative;
+}
+.section-fade-parallax::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--background));
+  pointer-events: none;
+  z-index: 2;
+}
+.section-fade-parallax::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to top, transparent, var(--background));
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Performance: will-change hints for animated elements ── */
+/* Applied only where GPU compositing is needed */
+.cube-box,
+.cube-scene,
+.mobile-area-card {
+  will-change: transform;
+}
+
+/* Remove will-change from static elements to free GPU memory */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .cube-box,
+  .mobile-area-card,
+  .card-premium {
+    transition: none !important;
+    animation: none !important;
+    will-change: auto !important;
+  }
+}

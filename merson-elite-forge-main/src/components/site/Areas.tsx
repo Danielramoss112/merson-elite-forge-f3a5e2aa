@@ -1,100 +1,100 @@
-import { useEffect, useRef, useState, useCallback } from "react";
 import { SITE } from "@/lib/site";
+import bancarioImg from "@/assets/areas/DIREITO BANCARIO.png";
+import consumidorImg from "@/assets/areas/Direito-do-consumidor.jpg";
+import imobiliarioImg from "@/assets/areas/imobiliario-unsplash.jpg";
+import previdenciarioImg from "@/assets/areas/DIREITO PREVIDENCIARIO INSS.png";
+import civilImg from "@/assets/areas/direito-civil.jpg";
+import familiaImg from "@/assets/areas/Direito FAMILIA.jpg";
+import criminalImg from "@/assets/areas/DIREITO CRIMINAL.png";
 
-/* ── 8 Areas ── */
+/* ── 7 Practice Areas (Removed Direito Trabalhista) ── */
 const AREAS = [
   {
     tag: "Direito Bancário",
-    title: "PARE DE PAGAR JUROS ABUSIVOS",
-    body: "Recupere seu fôlego financeiro. Analisamos contratos bancários para eliminar taxas ilegais e reduzir suas dívidas drasticamente. Não deixe o banco vencer.",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800",
-    stat: { num: "R$ 2.4M+", label: "RECUPERADOS" },
+    title: "Pare de Pagar Juros Abusivos",
+    body: "Analisamos contratos bancários para eliminar taxas ilegais e reduzir suas dívidas drasticamente.",
+    stat: { num: "R$ 2.4M+", label: "Recuperados" },
+    image: bancarioImg,
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><path d="M6 10h.01M6 14h.01M6 18h.01" />
+      </svg>
+    ),
   },
   {
     tag: "Direito do Consumidor",
-    title: "JUSTIÇA CONTRA ABUSOS",
-    body: "Sofreu cobrança indevida ou danos morais? Protegemos seus direitos contra grandes empresas. Você não está sozinho na luta contra o descaso.",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800",
-    stat: { num: "98%", label: "ÊXITO" },
+    title: "Justiça Contra Abusos",
+    body: "Protegemos seus direitos contra grandes empresas. Cobranças indevidas, danos morais e práticas abusivas.",
+    stat: { num: "98%", label: "Êxito" },
+    image: consumidorImg,
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
   },
   {
     tag: "Direito Imobiliário",
-    title: "SEGURANÇA NO SEU PATRIMÔNIO",
-    body: "Do contrato à escritura. Proteja seu maior investimento com assessoria especializada em regularização e transações imobiliárias seguras.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800",
-    stat: { num: "340+", label: "CONTRATOS" },
+    title: "Segurança no Seu Patrimônio",
+    body: "Do contrato à escritura. Assessoria especializada em regularização e transações imobiliárias seguras.",
+    stat: { num: "340+", label: "Contratos" },
+    image: imobiliarioImg,
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    ),
   },
   {
     tag: "Direito Previdenciário",
-    title: "SUA APOSENTADORIA MERECIDA",
-    body: "Não aceite a negativa do INSS. Lutamos para garantir o melhor benefício para você, com agilidade e perícia técnica. O seu futuro não pode esperar.",
-    image: "https://images.unsplash.com/photo-1576669801775-ffeba745bd9b?q=80&w=800",
-    stat: { num: "500+", label: "BENEFÍCIOS" },
-  },
-  {
-    tag: "Direito Trabalhista",
-    title: "SEUS DIREITOS RESPEITADOS",
-    body: "Garanta cada centavo do seu esforço. Especialistas em rescisões, horas extras e reconhecimento de vínculo. Se você trabalhou, você tem direitos.",
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2959213?q=80&w=800",
-    stat: { num: "94%", label: "VITÓRIAS" },
+    title: "Sua Aposentadoria Merecida",
+    body: "Não aceite a negativa do INSS. Lutamos para garantir o melhor benefício com agilidade e perícia técnica.",
+    stat: { num: "500+", label: "Benefícios" },
+    image: previdenciarioImg,
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="8" r="4" /><path d="M20 21a8 8 0 1 0-16 0" />
+      </svg>
+    ),
   },
   {
     tag: "Direito Civil",
-    title: "SOLUÇÕES JURÍDICAS EFICAZES",
-    body: "Proteção completa para seus contratos, indenizações e conflitos. Estratégia jurídica personalizada para resolver problemas complexos com o menor desgaste.",
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800",
-    stat: { num: "1.2K+", label: "PROCESSOS" },
+    title: "Soluções Jurídicas Eficazes",
+    body: "Proteção completa para seus contratos, indenizações e conflitos com estratégia jurídica personalizada.",
+    stat: { num: "1.2K+", label: "Processos" },
+    image: civilImg,
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" />
+      </svg>
+    ),
   },
   {
     tag: "Família e Sucessões",
-    title: "PROTEÇÃO FAMILIAR",
-    body: "Divórcio, guarda, alimentos, inventário e testamento. Acompanhamento sensível e técnico em demandas que envolvem família, patrimônio e relações sucessórias.",
-    image: "https://images.unsplash.com/photo-1591115765373-520b7a2d726f?q=80&w=800",
-    stat: { num: "280+", label: "FAMÍLIAS" },
+    title: "Proteção Familiar",
+    body: "Divórcio, guarda, alimentos, inventário. Acompanhamento técnico e humano nas demandas mais sensíveis.",
+    stat: { num: "280+", label: "Famílias" },
+    image: familiaImg,
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
   },
   {
     tag: "Direito Criminal",
-    title: "DEFESA ESTRATÉGICA",
-    body: "Defesa penal agressiva e técnica. Habeas corpus, crimes de trânsito e revisão criminal. Atuação ágil em medidas urgentes em todas as instâncias.",
-    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800",
-    stat: { num: "100%", label: "DEDICAÇÃO" },
+    title: "Defesa Estratégica",
+    body: "Defesa penal agressiva e técnica. Habeas corpus, crimes de trânsito e revisão criminal em todas as instâncias.",
+    stat: { num: "100%", label: "Dedicação" },
+    image: criminalImg,
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+      </svg>
+    ),
   },
 ];
 
-const N = AREAS.length; // 8
-
-/*
-  Rotation stops for 8 areas:
-  0: top    → rx:90,  ry:0
-  1: front  → rx:0,   ry:0
-  2: right  → rx:0,   ry:-90
-  3: back   → rx:0,   ry:-180
-  4: left   → rx:0,   ry:-270
-  5: bottom → rx:-90, ry:-360
-  6: reuse front (swap img) → rx:0, ry:-360  (continues rotating)
-  7: reuse right (swap img) → rx:0, ry:-450
-*/
-const STOPS = [
-  { rx: 90, ry: 0 },
-  { rx: 0, ry: 0 },
-  { rx: 0, ry: -90 },
-  { rx: 0, ry: -180 },
-  { rx: 0, ry: -270 },
-  { rx: -90, ry: -360 },
-  { rx: 0, ry: -360 },
-  { rx: 0, ry: -450 },
-];
-
-// Which cube face index (0-5) is visible at each stop
-function faceIdxAtStop(stopIdx: number): number {
-  if (stopIdx < 6) return stopIdx;
-  // After 6, cycle through front(1), right(2), back(3), left(4)
-  return 1 + ((stopIdx - 6) % 4);
-}
-
-const FACE_NAMES = ["top", "front", "right", "back", "left", "bottom"];
-
-/* ── WhatsApp SVG ── */
 function WaIcon() {
   return (
     <svg width={14} height={14} viewBox="0 0 24 24" fill="currentColor">
@@ -103,532 +103,249 @@ function WaIcon() {
   );
 }
 
-/* ── Easing ── */
-const easeIO = (t: number) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
-
-/* ── Component ── */
 export function Areas() {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const cubeRef = useRef<HTMLDivElement>(null);
-  const faceEls = useRef<(HTMLDivElement | null)[]>([]);
-  const faceImgIdx = useRef<number[]>([-1, -1, -1, -1, -1, -1]);
-  const [activeStop, setActiveStop] = useState(0);
-  const [inView, setInView] = useState(false);
-
-  // Set image on a cube face
-  const setFaceImage = useCallback((faceIdx: number, areaIdx: number) => {
-    if (faceImgIdx.current[faceIdx] === areaIdx) return;
-    faceImgIdx.current[faceIdx] = areaIdx;
-    const el = faceEls.current[faceIdx];
-    if (!el) return;
-    const area = AREAS[areaIdx];
-    const img = el.querySelector("img") as HTMLImageElement | null;
-    if (img) {
-      img.src = area.image;
-      img.alt = area.tag;
-    }
-  }, []);
-
-  // Initialize first 6 faces
-  useEffect(() => {
-    for (let i = 0; i < 6 && i < N; i++) {
-      setFaceImage(i, i);
-    }
-  }, [setFaceImage]);
-
-  // Scroll handler
-  useEffect(() => {
-    const wrap = wrapRef.current;
-    const cube = cubeRef.current;
-    if (!wrap || !cube) return;
-
-    let ticking = false;
-
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        ticking = false;
-        const rect = wrap.getBoundingClientRect();
-        const wrapTop = rect.top;
-        const wrapH = rect.height;
-        const vh = window.innerHeight;
-
-        // Are we inside the cube section?
-        const visible = wrapTop < vh && wrapTop + wrapH > 0;
-        setInView(visible);
-
-        if (!visible) return;
-
-        // Progress 0→1 through the entire scroll container
-        const totalTravel = wrapH - vh;
-        const traveled = -wrapTop;
-        const raw = totalTravel > 0 ? traveled / totalTravel : 0;
-        const progress = Math.max(0, Math.min(1, raw));
-
-        // Compute rotation
-        const t = progress * (N - 1);
-        const i = Math.min(Math.floor(t), N - 2);
-        const f = easeIO(t - i);
-        const a = STOPS[i];
-        const b = STOPS[i + 1];
-        const rx = a.rx + (b.rx - a.rx) * f;
-        const ry = a.ry + (b.ry - a.ry) * f;
-        cube.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
-
-        // Active stop
-        const stop = Math.min(N - 1, Math.round(progress * (N - 1)));
-        setActiveStop(stop);
-
-        // Swap images for stops >= 6
-        for (let si = 0; si < N; si++) {
-          const fi = faceIdxAtStop(si);
-          // Only swap if this stop is near the current view
-          if (Math.abs(si - stop) <= 2) {
-            setFaceImage(fi, si);
-          }
-        }
-      });
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [setFaceImage]);
-
-  const area = AREAS[activeStop];
-
   return (
-    <div id="areas" ref={wrapRef} className="cube-wrap">
-      {/* Sticky scene */}
-      <div className="cube-scene">
-        <div className="cube-perspective">
-          <div ref={cubeRef} className="cube-box" style={{ transform: "rotateX(90deg) rotateY(0deg)" }}>
-            {FACE_NAMES.map((name, i) => (
-              <div
-                key={name}
-                ref={(el) => { faceEls.current[i] = el; }}
-                className={`cube-face cube-face--${name}`}
-              >
-                <img src={AREAS[Math.min(i, N - 1)].image} alt={AREAS[Math.min(i, N - 1)].tag} loading="lazy" />
-                <div className="cube-face__dim" />
-                <span className="cube-face__ghost">{String(i + 1).padStart(2, "0")}</span>
-              </div>
-            ))}
+    <section id="areas" className="relative py-24 sm:py-32 overflow-hidden bg-[#040811]">
+      <div
+        aria-hidden
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, rgba(10,20,60,0.5) 0%, transparent 70%)" }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
+        <div className="text-center reveal">
+          <span className="eyebrow">Áreas de Atuação</span>
+          <h2 className="mt-8 font-serif text-4xl sm:text-5xl md:text-6xl tracking-[-0.015em]">
+            Especialidades <span className="italic silver-text">Jurídicas</span>
+          </h2>
+          <div className="ornament" aria-hidden>
+            <span className="ornament-diamond" />
           </div>
         </div>
 
-        {/* Text cards — only the active one is shown */}
-        {AREAS.map((a, i) => (
-          <div
-            key={a.tag}
-            className={`cube-card ${i % 2 === 0 ? "" : "cube-card--right"} ${activeStop === i && inView ? "cube-card--visible" : ""}`}
-          >
-            <div className="cube-card__accent" />
-            <span className="cube-card__tag">{a.tag}</span>
-            <h2 className="cube-card__title">{a.title}</h2>
-            <p className="cube-card__body">{a.body}</p>
-            <div className="cube-card__stats">
-              <span className="cube-card__stat-num">{a.stat.num}</span>
-              <span className="cube-card__stat-lbl">{a.stat.label}</span>
-            </div>
-            <a
-              href={SITE.whatsappUrl + "&text=" + encodeURIComponent(`Olá, gostaria de uma consultoria sobre ${a.tag}.`)}
-              target="_blank"
-              rel="noreferrer"
-              className="cube-cta"
+        <div className="mt-16 sm:mt-20 areas-grid">
+          {AREAS.map((area, i) => (
+            <div
+              key={area.tag}
+              className="area-card reveal group relative overflow-hidden"
+              style={{ animationDelay: `${(i % 4) * 80}ms` }}
             >
-              <WaIcon /> QUERO UMA CONSULTA ESPECIALIZADA
-            </a>
-          </div>
-        ))}
+              {/* Image Thumbnail */}
+              <div className="area-card__image-container">
+                <img 
+                  src={area.image} 
+                  alt={area.tag} 
+                  loading="lazy" 
+                  className="area-card__image" 
+                />
+                <div className="area-card__image-overlay"></div>
+              </div>
 
-        {/* Caption — ABSOLUTE inside scene, visible only when in scroll range */}
-        {inView && (
-          <div className="cube-caption">
-            <div className="cube-caption__num">{String(activeStop + 1).padStart(2, "0")}</div>
-            <div className="cube-caption__name">{area.tag.toUpperCase()}</div>
-          </div>
-        )}
+              <div className="area-card__content relative z-10">
+                <div className="area-card__icon">
+                  {area.icon}
+                </div>
 
-        {/* HUD top-right */}
-        {inView && (
-          <div className="cube-hud">
-            <div className="cube-hud__pct">{String(activeStop + 1).padStart(2, "0")}/{String(N).padStart(2, "0")}</div>
-            <div className="cube-hud__bar"><div className="cube-hud__fill" style={{ width: `${((activeStop + 1) / N) * 100}%` }} /></div>
-            <div className="cube-hud__label">{area.tag}</div>
-          </div>
-        )}
+                <div className="area-card__tag">{area.tag}</div>
 
-        {/* Nav dots — ABSOLUTE */}
-        {inView && (
-          <div className="cube-dots">
-            {AREAS.map((_, i) => (
-              <span key={i} className={`cube-dot${i === activeStop ? " cube-dot--on" : ""}`} />
-            ))}
-          </div>
-        )}
+                <h3 className="area-card__title">{area.title}</h3>
+
+                {/* Prime Video Effect: opacity-0 translate-y-4 -> opacity-100 translate-y-0 */}
+                <p className="area-card__body opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+                  {area.body}
+                </p>
+
+                <div className="area-card__stat">
+                  <span className="area-card__stat-num">{area.stat.num}</span>
+                  <span className="area-card__stat-lbl">{area.stat.label}</span>
+                </div>
+
+                <a
+                  href={`${SITE.whatsappUrl}&text=${encodeURIComponent(`Olá, gostaria de uma consultoria sobre ${area.tag}.`)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="area-card__cta"
+                >
+                  <WaIcon /> Consultar
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Spacer sections for scroll height */}
-      {AREAS.map((_, i) => (
-        <div key={i} className="cube-spacer" />
-      ))}
+      <style>{`
+        .areas-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 1.5rem;
+        }
 
-      <style>{CSS}</style>
-    </div>
+        .area-card {
+          display: flex;
+          flex-direction: column;
+          background: #06101f;
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          border-radius: 1.75rem;
+          transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                      box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                      border-color 0.4s ease;
+          will-change: transform;
+          cursor: default;
+        }
+
+        /* Prime Video Hover: scale-105 + shadow/glow */
+        .area-card:hover {
+          transform: scale(1.05);
+          box-shadow: 0 10px 40px rgba(10, 20, 60, 0.6);
+          border-color: rgba(255, 255, 255, 0.12);
+          z-index: 10;
+        }
+
+        .area-card__image-container {
+          height: 160px;
+          position: relative;
+          overflow: hidden;
+          border-top-left-radius: 1.75rem;
+          border-top-right-radius: 1.75rem;
+        }
+
+        .area-card__image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+          filter: grayscale(80%) contrast(1.1) brightness(0.8);
+        }
+
+        .area-card:hover .area-card__image {
+          transform: scale(1.1);
+          filter: grayscale(20%) contrast(1.1) brightness(1);
+        }
+
+        .area-card__image-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to bottom, transparent, #06101f 95%);
+        }
+
+        .area-card__content {
+          padding: 0 2rem 1.75rem;
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          margin-top: -1.5rem;
+        }
+
+        .area-card__icon {
+          width: 52px;
+          height: 52px;
+          border-radius: 1rem;
+          background: #040811;
+          border: 1px solid rgba(255, 255, 255, 0.07);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #94a3b8;
+          margin-bottom: 1.5rem;
+          flex-shrink: 0;
+          transition: background 0.3s ease, border-color 0.3s ease;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .area-card:hover .area-card__icon {
+          background: rgba(255, 255, 255, 0.07);
+          border-color: rgba(148, 163, 184, 0.2);
+        }
+
+        .area-card__tag {
+          font-family: 'Inter', sans-serif;
+          font-size: 0.65rem;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #4a6fa5;
+          margin-bottom: 0.75rem;
+          font-weight: 500;
+        }
+
+        .area-card__title {
+          font-family: 'Cormorant Garamond', Georgia, serif;
+          font-size: clamp(1.25rem, 2vw, 1.5rem);
+          color: #e2e8f0;
+          line-height: 1.25;
+          letter-spacing: -0.01em;
+          margin-bottom: 0.9rem;
+        }
+
+        .area-card__body {
+          font-family: 'Inter', sans-serif;
+          font-size: 0.875rem;
+          line-height: 1.7;
+          color: #475569;
+          font-weight: 300;
+          flex: 1;
+          margin-bottom: 1.5rem;
+          transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+                      transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .area-card__stat {
+          display: flex;
+          align-items: baseline;
+          gap: 0.5rem;
+          margin-bottom: 1.5rem;
+          padding-top: 1.25rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .area-card__stat-num {
+          font-family: 'Cormorant Garamond', Georgia, serif;
+          font-size: 1.75rem;
+          color: #94a3b8;
+          line-height: 1;
+          letter-spacing: -0.02em;
+        }
+
+        .area-card__stat-lbl {
+          font-family: 'Inter', sans-serif;
+          font-size: 0.6rem;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #334155;
+          font-weight: 500;
+        }
+
+        .area-card__cta {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          color: #64748b;
+          font-family: 'Inter', sans-serif;
+          font-size: 0.7rem;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          font-weight: 500;
+          padding: 0.6rem 1.25rem;
+          border-radius: 100px;
+          text-decoration: none;
+          transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+          width: fit-content;
+        }
+
+        .area-card__cta:hover {
+          background: rgba(255, 255, 255, 0.05);
+          border-color: rgba(255, 255, 255, 0.15);
+          color: #94a3b8;
+        }
+
+        @media (max-width: 480px) {
+          .areas-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
+    </section>
   );
 }
-
-/* ────────────────────────────────────────────── */
-/*  Scoped CSS                                     */
-/* ────────────────────────────────────────────── */
-const BLUE = "#007BFF";
-
-const CSS = `
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap");
-
-/* ── Container ── */
-.cube-wrap {
-  position: relative;
-  background: #0d0a08;
-}
-
-/* Each spacer = one "stop" worth of scroll */
-.cube-spacer {
-  height: 100vh;
-  pointer-events: none;
-}
-
-/* ── Sticky Scene ── */
-.cube-scene {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.cube-perspective {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1100px;
-  pointer-events: none;
-}
-
-/* ── Cube ── */
-.cube-box {
-  --s: min(72vw, 72vh, 540px);
-  width: var(--s);
-  height: var(--s);
-  position: relative;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-.cube-face {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  backface-visibility: hidden;
-  background:
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 48px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 48px),
-    #0d0a08;
-}
-
-.cube-face img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.55;
-  filter: brightness(0.6) contrast(1.15) saturate(0.9);
-  transition: src 0.4s;
-}
-
-.cube-face__dim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(13,10,8,0.2) 0%, rgba(13,10,8,0.75) 100%);
-  z-index: 1;
-}
-
-.cube-face__ghost {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 1.75rem;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2rem, 8vw, 5rem);
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.04);
-  z-index: 2;
-  user-select: none;
-}
-
-.cube-face--top    { transform: rotateX(-90deg) translateZ(calc(var(--s)/2)); }
-.cube-face--front  { transform: translateZ(calc(var(--s)/2)); }
-.cube-face--right  { transform: rotateY(90deg)  translateZ(calc(var(--s)/2)); }
-.cube-face--back   { transform: rotateY(180deg) translateZ(calc(var(--s)/2)); }
-.cube-face--left   { transform: rotateY(-90deg) translateZ(calc(var(--s)/2)); }
-.cube-face--bottom { transform: rotateX(90deg)  translateZ(calc(var(--s)/2)); }
-
-/* ── Text Cards ── */
-.cube-card {
-  position: absolute;
-  top: 50%;
-  left: 5rem;
-  transform: translateY(-50%);
-  max-width: 24rem;
-  padding: 2.5rem 2rem;
-  background: rgba(13, 10, 8, 0.88);
-  border-left: 1px solid ${BLUE}33;
-  backdrop-filter: blur(14px) saturate(130%);
-  -webkit-backdrop-filter: blur(14px) saturate(130%);
-  z-index: 5;
-  pointer-events: auto;
-
-  opacity: 0;
-  translate: 0 1rem;
-  visibility: hidden;
-  transition: opacity 0.5s ease, translate 0.5s ease, visibility 0s 0.5s;
-}
-
-.cube-card--visible {
-  opacity: 1;
-  translate: 0 0;
-  visibility: visible;
-  transition: opacity 0.5s ease, translate 0.5s ease, visibility 0s 0s;
-}
-
-.cube-card--right {
-  left: auto;
-  right: 5rem;
-  border-left: none;
-  border-right: 1px solid ${BLUE}33;
-  text-align: right;
-}
-
-.cube-card--right .cube-card__accent {
-  transform-origin: right;
-  margin-left: auto;
-}
-
-.cube-card--right .cube-cta {
-  margin-left: auto;
-}
-
-.cube-card--right .cube-card__stats {
-  align-items: flex-end;
-}
-
-.cube-card__accent {
-  width: 3rem;
-  height: 1px;
-  background: ${BLUE};
-  margin-bottom: 1.2rem;
-  transform-origin: left;
-}
-
-.cube-card__tag {
-  display: block;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: ${BLUE};
-  margin-bottom: 1rem;
-}
-
-.cube-card__title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-weight: 400;
-  font-size: clamp(2rem, 4.5vw, 3.8rem);
-  letter-spacing: 0.03em;
-  line-height: 0.95;
-  color: #ffffff;
-}
-
-.cube-card__body {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.76rem;
-  line-height: 1.85;
-  color: #8a7b6e;
-  margin-top: 1.2rem;
-}
-
-.cube-card__stats {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  margin-top: 1.8rem;
-}
-
-.cube-card__stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.4rem;
-  color: ${BLUE};
-  line-height: 1;
-}
-
-.cube-card__stat-lbl {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #8a7b6e;
-}
-
-/* ── CTA ── */
-.cube-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.7rem 1.4rem;
-  border: 1px solid ${BLUE};
-  color: ${BLUE};
-  font-family: 'DM Mono', monospace;
-  font-size: 0.56rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  margin-top: 1.6rem;
-  transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-
-.cube-cta:hover {
-  background: ${BLUE};
-  color: #0d0a08;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px ${BLUE}44;
-}
-
-.cube-cta svg { width: 14px; height: 14px; }
-
-/* ── Caption (ABSOLUTE) ── */
-.cube-caption {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  pointer-events: none;
-  user-select: none;
-  z-index: 4;
-}
-
-.cube-caption__num {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.58rem;
-  letter-spacing: 0.28em;
-  color: ${BLUE};
-  text-transform: uppercase;
-}
-
-.cube-caption__name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(1.6rem, 4.5vw, 3.2rem);
-  letter-spacing: 0.08em;
-  color: #8a7b6e;
-  opacity: 0.4;
-  line-height: 1;
-}
-
-/* ── HUD ── */
-.cube-hud {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  text-align: right;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  color: #8a7b6e;
-  text-transform: uppercase;
-  z-index: 4;
-}
-
-.cube-hud__bar {
-  width: 7.5rem;
-  height: 1px;
-  background: #8a7b6e;
-  margin-top: 0.5rem;
-  margin-left: auto;
-  position: relative;
-  overflow: hidden;
-}
-
-.cube-hud__fill {
-  position: absolute;
-  top: 0; bottom: 0; left: 0;
-  background: ${BLUE};
-  transition: width 0.3s ease;
-}
-
-.cube-hud__label {
-  font-size: 0.58rem;
-  color: ${BLUE};
-  margin-top: 0.4rem;
-}
-
-/* ── Dots ── */
-.cube-dots {
-  position: absolute;
-  left: 2.25rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  z-index: 4;
-}
-
-.cube-dot {
-  display: block;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #8a7b6e;
-  transition: background 0.3s, transform 0.3s;
-}
-
-.cube-dot--on {
-  background: ${BLUE};
-  transform: scale(2);
-}
-
-/* ── Responsive ── */
-@media (max-width: 56.25em) {
-  .cube-card,
-  .cube-card--right {
-    left: 1.5rem;
-    right: 1.5rem;
-    max-width: 100%;
-    padding: 1.5rem 1.25rem;
-    top: auto;
-    bottom: 3rem;
-    transform: none;
-    text-align: left;
-    border-left: 1px solid ${BLUE}33;
-    border-right: none;
-  }
-
-  .cube-card--right .cube-card__accent {
-    transform-origin: left;
-    margin-left: 0;
-  }
-
-  .cube-card--right .cube-cta { margin-left: 0; }
-  .cube-card--right .cube-card__stats { align-items: flex-start; }
-
-  .cube-dots { display: none; }
-  .cube-hud { top: 1rem; right: 1rem; }
-  .cube-caption { bottom: 1rem; }
-}
-`;
