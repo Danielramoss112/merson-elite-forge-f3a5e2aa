@@ -134,9 +134,19 @@ export function CookiesBanner() {
           background: #fff;
           transform: scale(1.03);
         }
+        @media (max-width: 1024px) {
+          .cookies-banner {
+            bottom: 5.5rem; /* Elevate to clear MobileStickyBar */
+          }
+        }
         @media (max-width: 480px) {
+          .cookies-banner {
+            width: calc(100% - 1.5rem);
+            bottom: 6rem;
+          }
           .cookies-banner__inner {
             flex-wrap: wrap;
+            padding: 1rem;
           }
           .cookies-banner__btn {
             width: 100%;
