@@ -1,12 +1,13 @@
 import { SITE } from "@/lib/site";
 import { Radar, IconContainer } from "@/components/ui/radar-effect";
-import { Calendar, Search, Shield } from "lucide-react";
+import { Calendar, Search, Shield, ArrowRight } from "lucide-react";
+import GradientButton from "@/components/ui/gradient-button";
 
 export function Process() {
   return (
-    <section id="processo" className="relative py-24 sm:py-32 overflow-hidden bg-[#040811]">
+    <section id="processo" className="relative py-28 sm:py-36 overflow-hidden bg-[#040811]">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
-        <div className="text-center reveal mb-16">
+        <div className="text-center reveal mb-20">
           <span className="eyebrow">Como Funciona</span>
           <h2 className="mt-8 font-serif text-4xl sm:text-5xl md:text-6xl tracking-[-0.015em]">
             Simples, direto e{" "}
@@ -67,12 +68,10 @@ export function Process() {
             target="_blank"
             rel="noreferrer"
             id="process-cta"
-            className="btn-silver inline-flex items-center justify-center gap-3 rounded-full bg-white px-12 py-5 text-sm font-bold tracking-wide text-background shadow-silver hover:scale-105 transition-all duration-500"
           >
-            Iniciar Minha Consulta
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-            </svg>
+            <GradientButton>
+              Iniciar Minha Consulta <ArrowRight size={18} />
+            </GradientButton>
           </a>
         </div>
       </div>

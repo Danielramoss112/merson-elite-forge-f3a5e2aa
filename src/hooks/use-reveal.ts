@@ -1,10 +1,14 @@
 import { useEffect } from "react";
 
 /**
- * Adds `.in` to any `.reveal` element when it enters the viewport.
+ * Adds `.in` to any `.reveal`, `.reveal-left`, `.reveal-right`, `.reveal-scale`
+ * element when it enters the viewport.
  * Works for elements that mount later (lazy/deferred sections) by watching
  * DOM additions via MutationObserver.
  */
+
+const REVEAL_SELECTORS = ".reveal:not(.in), .reveal-left:not(.in), .reveal-right:not(.in), .reveal-scale:not(.in)";
+
 export function useReveal() {
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -16,11 +20,11 @@ export function useReveal() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -5% 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -5% 0px" }
     );
 
     const observe = (root: ParentNode) => {
-      root.querySelectorAll<HTMLElement>(".reveal:not(.in)").forEach((el) => io.observe(el));
+      root.querySelectorAll<HTMLElement>(REVEAL_SELECTORS).forEach((el) => io.observe(el));
     };
 
     observe(document);
@@ -31,7 +35,13 @@ export function useReveal() {
         m.addedNodes.forEach((node) => {
           if (node.nodeType !== 1) return;
           const el = node as HTMLElement;
-          if (el.classList?.contains("reveal") && !el.classList.contains("in")) {
+          if (
+            (el.classList?.contains("reveal") ||
+             el.classList?.contains("reveal-left") ||
+             el.classList?.contains("reveal-right") ||
+             el.classList?.contains("reveal-scale")) &&
+            !el.classList.contains("in")
+          ) {
             io.observe(el);
           }
           observe(el);
@@ -43,7 +53,7 @@ export function useReveal() {
     // Safety net: if something is already on-screen when it mounts but the
     // observer hasn't fired yet, force-reveal after a tick.
     const forceVisible = () => {
-      document.querySelectorAll<HTMLElement>(".reveal:not(.in)").forEach((el) => {
+      document.querySelectorAll<HTMLElement>(REVEAL_SELECTORS).forEach((el) => {
         const r = el.getBoundingClientRect();
         if (r.top < window.innerHeight && r.bottom > 0) el.classList.add("in");
       });

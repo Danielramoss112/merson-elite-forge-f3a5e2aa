@@ -89,7 +89,7 @@ export function GoogleReviews() {
         </p>
 
         {/* Review Cards — CSS Grid, Dark Blue, Apple elegance */}
-        <div className="mt-16 sm:mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 reveal">
+        <div className="mt-16 sm:mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 reveal-scale">
           {REVIEWS.map((r, i) => (
             <div
               key={i}

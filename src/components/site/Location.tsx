@@ -28,7 +28,7 @@ export function Location() {
         </div>
 
         <div className="mt-16 sm:mt-24 grid lg:grid-cols-3 gap-8 sm:gap-12 items-stretch">
-          <div className="lg:col-span-2 reveal">
+          <div className="lg:col-span-2 reveal-left">
             <div className="relative p-[1px] rounded-[2.5rem] bg-gradient-to-br from-white/10 via-transparent to-white/5 shadow-elegant overflow-hidden">
               <iframe
                 title="Mapa do escritório Merson Macedo Advocacia"
@@ -44,7 +44,7 @@ export function Location() {
             </div>
           </div>
 
-          <div className="reveal flex flex-col justify-center items-center text-center rounded-[2.5rem] border border-white/5 bg-ink-soft/50 p-10 sm:p-12 shadow-elegant relative overflow-hidden">
+          <div className="reveal-right flex flex-col justify-center items-center text-center rounded-[2.5rem] border border-white/5 bg-ink-soft/50 p-10 sm:p-12 shadow-elegant relative overflow-hidden">
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-silver/10 blur-2xl rounded-full" />
              
             <div className="flex items-center gap-3 text-silver">

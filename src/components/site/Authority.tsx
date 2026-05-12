@@ -56,7 +56,7 @@ export function Authority() {
           {PILLARS.map((p, i) => (
             <div
               key={i}
-              className={`reveal reveal-delay-${i + 1} card-premium rounded-[2.5rem] border border-white/5 bg-ink-soft p-8 sm:p-12`}
+              className={`reveal-scale reveal-delay-${i + 1} card-premium rounded-[2.5rem] border border-white/5 bg-ink-soft p-8 sm:p-12`}
             >
               <div className="h-16 w-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-silver">
                 {p.realIcon}

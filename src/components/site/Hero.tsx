@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SITE } from "@/lib/site";
+import GradientButton from "@/components/ui/gradient-button";
 import institutionalBg from "@/assets/merson-bg-institutional.png";
 import mersonPortrait from "@/assets/merson-portrait.png";
 
@@ -44,20 +45,20 @@ export function Hero() {
 
           {/* Left Content */}
           <div className="reveal">
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-10">
               <div className="h-[1px] w-12 bg-silver/30" />
               <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.4em] text-silver/60 font-medium">
                 A Elite da Advocacia Estratégica
               </span>
             </div>
 
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-[-0.02em]">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl leading-[1.02] tracking-[-0.025em]">
               Sua Defesa <br />
               com Precisão <br />
               <span className="italic silver-text">Cirúrgica</span>
             </h1>
 
-            <p className="mt-10 text-[1.1rem] sm:text-[1.2rem] text-foreground/50 leading-[1.6] max-w-xl font-light">
+            <p className="mt-10 text-[1.05rem] sm:text-[1.15rem] text-foreground/45 leading-[1.7] max-w-xl font-light">
               Nenhuma decisão é por acaso. Atuamos com a visão e o rigor técnico de quem esteve do outro lado da mesa (TJMA). Soluções de alta complexidade desenhadas para proteger seu patrimônio e sua liberdade.
             </p>
 
@@ -66,13 +67,14 @@ export function Hero() {
                 href={SITE.whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="btn-silver inline-flex items-center justify-center gap-3 rounded-full bg-white px-10 py-5 text-sm font-semibold tracking-wide text-background shadow-silver transition-all duration-700"
               >
-                Agendar Consultoria <ArrowRight size={20} />
+                <GradientButton>
+                  Agendar Consultoria <ArrowRight size={18} />
+                </GradientButton>
               </a>
               <a
                 href="#areas"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-10 py-5 text-sm font-semibold tracking-wide text-foreground transition-all duration-500 hover:bg-white/10"
+                className="btn-silver inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-10 py-4 text-sm font-medium tracking-wide text-foreground/80 transition-all duration-500 hover:bg-white/10 hover:text-foreground"
               >
                 Especialidades
               </a>
@@ -93,7 +95,7 @@ export function Hero() {
           </div>
 
           {/* RIGHT: Portrait with gradient mask blending into dark bg */}
-          <div className="relative reveal flex justify-center lg:justify-end">
+          <div className="relative reveal reveal-delay-1 flex justify-center lg:justify-end">
             {/* Ambient midnight blue glow — NOT warm */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] rounded-full pointer-events-none opacity-40"
               style={{ background: "radial-gradient(circle, rgba(10,20,46,0.8) 0%, transparent 70%)" }}

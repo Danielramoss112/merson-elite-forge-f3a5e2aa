@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { ArrowRight } from "lucide-react";
 import { AREAS, SITE, buildWhatsAppLink } from "@/lib/site";
+import GradientButton from "@/components/ui/gradient-button";
 
 export function Contact() {
   const [form, setForm] = useState({
@@ -47,9 +48,9 @@ ${form.message}`;
   ];
 
   return (
-    <section id="contato" className="relative py-24 sm:py-32 overflow-hidden bg-[#040811]">
+    <section id="contato" className="relative py-28 sm:py-36 overflow-hidden bg-[#040811]">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 grid lg:grid-cols-2 gap-16 lg:gap-24">
-        <div className="reveal">
+        <div className="reveal-left">
           <span className="eyebrow">Contato</span>
           <h2 className="mt-8 font-serif text-4xl sm:text-5xl md:text-6xl silver-text">
             Agende sua <span className="italic">Estratégia</span>
@@ -78,7 +79,7 @@ ${form.message}`;
 
         <form
           onSubmit={onSubmit}
-          className="reveal reveal-delay-1 rounded-[3rem] p-8 sm:p-12 shadow-elegant space-y-6 bg-ink-soft/50 border border-white/5"
+          className="reveal-right rounded-[3rem] p-8 sm:p-12 shadow-elegant space-y-6 bg-ink-soft/50 border border-white/5"
         >
           <Field label="Nome">
             <input
@@ -129,12 +130,14 @@ ${form.message}`;
             />
           </Field>
 
-          <button
-            type="submit"
-            className="w-full btn-silver inline-flex items-center justify-center gap-3 rounded-full bg-white px-10 py-5 text-sm font-semibold tracking-wide text-background shadow-silver transition-all duration-700"
+          <GradientButton
+            onClick={() => {
+              const formEl = document.querySelector<HTMLFormElement>("#contato form");
+              formEl?.requestSubmit();
+            }}
           >
-            Enviar Mensagem <ArrowRight size={20} />
-          </button>
+            Enviar Mensagem <ArrowRight size={18} />
+          </GradientButton>
         </form>
       </div>
     </section>

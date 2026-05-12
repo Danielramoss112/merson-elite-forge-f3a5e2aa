@@ -34,7 +34,7 @@ export function Differentiation() {
         {/* Comparison grid */}
         <div className="mt-16 sm:mt-24 grid md:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto items-stretch">
           {/* LEFT — Others */}
-          <div className="reveal compare-col-muted rounded-[2.5rem] p-8 sm:p-12">
+          <div className="reveal-left compare-col-muted rounded-[2.5rem] p-8 sm:p-12">
             <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/30 font-medium">
               Outras Soluções
             </div>
@@ -51,7 +51,7 @@ export function Differentiation() {
           </div>
 
           {/* RIGHT — Ours */}
-          <div className="reveal reveal-delay-1 compare-col-silver rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden">
+          <div className="reveal-right reveal-delay-1 compare-col-silver rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden">
             <div aria-hidden className="absolute top-0 right-0 w-64 h-64 pointer-events-none"
               style={{ background: "radial-gradient(circle, rgba(148,163,184,0.08), transparent 70%)" }}
             />
@@ -74,7 +74,7 @@ export function Differentiation() {
         </div>
 
         {/* Atendimento Direto Block with celular image — Task 1c */}
-        <div className="mt-20 sm:mt-28 reveal">
+        <div className="mt-20 sm:mt-28 reveal-scale">
           <div className="relative rounded-[3rem] overflow-hidden border border-white/5 bg-[#0a142e]/50 shadow-elegant">
             <div className="grid md:grid-cols-2 gap-0 items-center">
               {/* Image side */}
