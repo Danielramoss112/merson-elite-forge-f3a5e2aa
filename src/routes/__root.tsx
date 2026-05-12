@@ -1,4 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { CustomCursor } from "@/components/ui/custom-cursor";
 
 import appCss from "../styles.css?url";
 
@@ -75,6 +76,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <CustomCursor />
         {children}
         <Scripts />
       </body>

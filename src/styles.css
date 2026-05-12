@@ -207,6 +207,57 @@
     font-weight: 500;
     letter-spacing: 0.25em;
     text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .eyebrow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.08),
+      transparent
+    );
+    animation: shimmer 4s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+  }
+
+  /* ── Footer Link effect ── */
+  .footer-link {
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+  }
+  .footer-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--silver);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(-50%);
+    opacity: 0;
+    box-shadow: 0 0 10px var(--silver);
+  }
+  .footer-link:hover {
+    color: var(--foreground) !important;
+  }
+  .footer-link:hover::after {
+    width: 80%;
+    opacity: 1;
   }
   .eyebrow::before {
     content: "";
@@ -287,6 +338,7 @@
   /* ── Premium Card ── */
   .card-premium {
     position: relative;
+    overflow: hidden;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.6s ease,
                 box-shadow 0.6s ease;
@@ -294,19 +346,27 @@
   .card-premium::after {
     content: "";
     position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(148,163,184,0.3), transparent 40%, rgba(148,163,184,0.1) 100%);
-    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.6s ease;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
+    transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
   }
-  .card-premium:hover::after { opacity: 1; }
+  .card-premium:hover::after {
+    left: 150%;
+  }
+  .card-premium:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5);
+  }
   .card-premium:hover {
     transform: translateY(-6px);
     box-shadow: 0 35px 80px -25px rgba(0,0,0,0.6),
@@ -465,12 +525,22 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 2px;
-  z-index: 100;
-  background: linear-gradient(90deg, rgba(148,163,184,0.4), var(--silver), rgba(148,163,184,0.4));
+  z-index: 10000;
+  background: rgba(148, 163, 184, 0.1);
   transform-origin: left center;
   transform: scaleX(var(--scroll, 0));
   transition: transform 0.1s linear;
-  box-shadow: 0 0 12px rgba(148,163,184,0.5);
+}
+.scroll-progress::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 60px;
+  height: 2px;
+  background: var(--silver);
+  box-shadow: 0 0 20px 2px var(--silver);
+  transform: translateY(-50%);
 }
 
 /* ── Mobile Sticky CTA ── */
